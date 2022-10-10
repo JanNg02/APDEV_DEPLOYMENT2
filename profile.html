@@ -16,7 +16,7 @@
             <div class="container-fluid">
               <a class="navbar-brand" href="#">
                 <img src="images/Logo.png" class = "logo" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-                NAME 
+                CHUBBIES 
               </a>
               <ul class="navbar-nav me-auto mb-2 mb-lg-0"> 
                 <li class="nav-item">
@@ -25,21 +25,28 @@
               </ul>
               <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-light" type="submit"><img src =  "images/search.png" id = "search"></button>
+                <button class="btn btn-light" type="submit"> <img src =  "images/search.png" id = "search"></button>
               </form>
         </nav>
         
-        <div class = "mx-auto main">
-          <h1> User Profile </h1>
+        <div class = "main">
 
-          <img src =  "images/image.png" class="rounded-circle border border-dark border-2" alt="100x100">
-          </br> Name: Jan Daniel Ng  
-          <div class="d-grid gap-2">
-            <a href="OrderHistory.html">
-              <button class="btn btn-primary btn-lg">Order History</button>
-            </a>
+          <div class = "child">
+            <h1> User Profile </h1>
+            <img src =  "images/image.png" class="rounded-circle border border-dark border-2" alt="100x100">
+            </br> Name: Jan Daniel Ng  </br>
+                <button onclick="document.getElementById('iframe').src = 
+                'OrderHistory.html'">OrderHistory</button>
+                </br>
+                <button onclick="document.getElementById('iframe').src = 
+                'settings.html'">Account Settings</button>
           </div>
-        </div>
+       
+        <!-- iframe -->
+          <div class ="child">
+            <iframe src= "settings.html" id = "iframe" class = "iframe" name = "iframe" title="Iframe"></iframe>
+          </div>  
+      </div>
 
         <!-- bottom navbar -->
           <nav class="navbar fixed-bottom navbar-dark bg-primary">
