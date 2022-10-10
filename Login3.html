@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home Page</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navigation Bar CSS*/
+.navbar {
+  overflow: hidden;
+  background-color: rgba(14, 110, 188, 0.863);
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 25px;
+  text-decoration: none;
+}
+
+.navbar img {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Home page CSS*/
+.home-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("home.jpg");
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.home-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.home-text button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: black;
+  background-color: #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+
+.home-text button:hover {
+  background-color: #555;
+  color: white;
+}
+
+/* Footer CSS*/
+.footer {
+  padding: 20px 0px;
+  text-align: center;
+  background: #ddd;
+  width: 100%;
+  height: 100px;
+}
+
+.fa {
+  padding: 10px;
+  font-size: 20px;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 1px 0px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  color: grey;
+}
+
+.fa-twitter {
+  color: grey;
+}
+
+.fa-instagram {
+  color: grey;
+}
+
+/* Login CSS*/
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+textarea{
+ width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+.login {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+  padding-top: 60px;
+}
+
+.login-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; 
+  border: 1px solid #888;
+  width: 50%; 
+}
+
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+
+<!--Navigation Bar--> 
+<div class="navbar">
+    <img src="logo.png" alt="logo" style="height:50px;"> 
+    <a href="Login3.html">Home</a>
+    <a href="register.html">Register</a> <!--Redirect to Registration Form--> 
+    <a href="AboutUs.html">About Us</a> <!--Redirect to About Us Page--> 
+</div>
+
+<!--Home Page--> 
+<div class="home-image">
+  <div class="home-text">
+    <h1 style="font-size:50px">Welcome to Chubbies!</h1>
+    <p>and thank you for visiting our website! </p>
+    <p>We appreciate that you are curious about our company 
+        and look forward to meeting you in our store in the near future.</p>
+    
+    <!--For Login Form to appear--> 
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Start Now!</button>
+  </div>
+</div>
+
+<!--Login Form--> 
+<div id="id01" class="login">
+	<form class="login-content" >
+    <div class="imgcontainer">
+		  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+		  <img src="icon.jpg" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+		  <label for="username"><b>Username</b></label>
+		  <input type="text" placeholder="Enter Username" name="username" id="uname" required>
+
+		  <label for="pass"><b>Password</b></label>
+		  <input type="password" placeholder="Enter Password" name="pass" id="pass" minlength="5" maxlength="20" required>
+
+		  <button  onclick="ifValid(this)" id="submit">Login</button>
+		  <label>
+			  <input type="checkbox" checked="unchecked" name="remember"> Remember me
+		  </label>
+    </div>
+  </form>
+</div>
+
+<!--Footer--> 
+<div class="footer">
+  <p>© 2022 Chubbies. All rights reserved.</p>
+  <a href="https://www.facebook.com/" class="fa fa-facebook"> </a>
+  <a href="https://twitter.com/?lang=en" class="fa fa-twitter"></a>
+  <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+</div>
+
+<script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+</script>
+
+</body>
+</html>

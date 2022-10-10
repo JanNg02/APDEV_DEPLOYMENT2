@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  text-align: center;
+}
+
+/* Navigation Bar CSS */
+.navbar {
+  overflow: hidden;
+  margin-top: 0%;
+  background-color: rgba(14, 110, 188, 0.863);
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 25px;
+  text-decoration: none;
+}
+
+.navbar img {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* About Us Section CSS */
+html {
+  box-sizing: border-box;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #0eafe0;
+  color: white;
+}
+
+/* Meet the Team Section CSS */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 3px;
+}
+
+.container {
+  padding: 10px 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px;
+  color: white;
+  background-color: #0eafe0;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: grey;
+}
+
+/* Footer CSS */
+.footer {
+  padding: 20px 0px;
+  text-align: center;
+  background: #ddd;
+  width: 100%;
+  height: 100%;
+}
+
+.fa {
+  padding: 10px;
+  font-size: 20px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 1px 1px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  color: grey;
+}
+
+.fa-twitter {
+  color: grey;
+}
+
+.fa-instagram {
+  color: grey;
+}
+</style>
+</head>
+<body>
+  <!--Navigation Bar--> 
+  <div class="navbar">
+    <img src="logo.png" alt="logo" style="height:50px;">
+    <a href="Login3.html">Home</a> <!--Redirect to Home Page--> 
+    <a href="register.html">Register</a> <!--Redirect to Registration Form--> 
+    <a href="AboutUs.html">About Us</a> 
+  </div>
+
+  <!--About Us Section--> 
+  <div class="about-section">
+   <h1>About Us</h1>
+    <p>Chubbies is a locally owned and operated 
+    pet medicine supply store. Our mission is to provide dog 
+    and cat parents with everything that they need to ensure 
+    their pet lives a long and happy life. We love to talk about 
+    pets of all types and we are even more excited when you bring 
+    your furry family member into the store to meet us! We are 
+    constantly researching and learning about new medicines that 
+    can make our pets lives better. </p>
+
+    <p>Our goal is to provide a clean, pet friendly store that caters to
+     your dog or cat needs. While our store 
+    is not very large, we offer an experience that is fast, 
+    friendly, local, and less expensive supplies.</p> 
+  
+  </div>
+
+  <!--Meet the Team Section--> 
+  <h1 style="text-align:center">Meet the Team</h1>
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <img src="Jm.jpg" alt="Jm" style="width:67%; padding:10px;">
+        <div class="container">
+          <h2>Jm Mojica</h2>
+          <p class="title">Senior Veterinarian</p>
+          <p>jm_mojica@dlsu.edu.ph</p>
+          <p><button class="button"><a href="https://www.google.com/intl/fil/gmail/about/">Contact</a></button></p><!--Redirect to Google-->
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <img src="Jan.jpg" alt="Daniel" style="width:70%; padding:10px;">
+        <div class="container">
+          <h2>Jan Daniel Ng</h2>
+          <p class="title">Ceo & Founder</p>
+          <p>jan_ng@dlsu.edu.ph</p>
+          <p><button class="button"><a href="https://www.google.com/intl/fil/gmail/about/">Contact</a></button></p><!--Redirect to Google--> 
+        </div>
+      </div>
+    </div>
+  
+    <div class="column">
+      <div class="card">
+        <img src="Justin.jpg" alt="Justin" style="width:75%; padding:10px;">
+        <div class="container">
+          <h2>Justin Naguit</h2>
+          <p class="title">Web Designer</p>
+          <p>justin_p_naguit@dlsu.edu.ph</p>
+          <p><button class="button"><a href="https://www.google.com/intl/fil/gmail/about/">Contact</a></button></p><!--Redirect to Google-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Footer--> 
+  <div class="row">
+    <div class="footer">
+      <p>© 2022 Chubbies. All rights reserved.</p>
+      <a href="https://www.facebook.com/" class="fa fa-facebook"> </a><!--Redirect to Facebook-->
+      <a href="https://twitter.com/?lang=en" class="fa fa-twitter"></a><!--Redirect to Twitter-->
+      <a href="https://www.instagram.com/" class="fa fa-instagram"></a><!--Redirect to Instagram-->
+    </div>
+  </div>
+
+</body>
+</html>
