@@ -247,11 +247,11 @@ body {
 }
 
 .btn-5:hover {
-	background: #c0392b;
+	background: rgb(158, 9, 158);
 }
 
 .btn-5:active {
-	background: #c0392b;
+	background: rgb(158, 8, 158);
 	top: 2px;
 }
 
