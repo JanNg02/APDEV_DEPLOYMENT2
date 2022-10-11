@@ -55,9 +55,8 @@ body {
 .child {
   width: 50%;
   float: left;
-  padding: 20px;
-  border: 2px solid red;
-    
+  padding: 20px;  
+  border-color:#2c3e50;
 }
 
 #left{
@@ -107,6 +106,7 @@ body {
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
+  width: 400px; 
 }
 
 .btn:after {
@@ -232,6 +232,30 @@ body {
 }
 
 .btn-4:before {
+	position: absolute;
+	height: 100%;
+	left: 0;
+	top: 0;
+	line-height: 3;
+	font-size: 140%;
+	width: 60px;
+}
+
+.btn-5 {
+	background: rgb(211, 119, 211);
+	color: #fff;
+}
+
+.btn-5:hover {
+	background: #c0392b;
+}
+
+.btn-5:active {
+	background: #c0392b;
+	top: 2px;
+}
+
+.btn-5:before {
 	position: absolute;
 	height: 100%;
 	left: 0;
