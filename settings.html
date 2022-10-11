@@ -6,9 +6,27 @@
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
         <!--css-->
-        <link rel="stylesheet" type="text/css" media="all" href="profilestyle.css">
+        <link rel="stylesheet" type="text/css" media="all" href="settingstyle.css">
     </head>
     <body>
-        pokemon
+
+      <label for="lastname"><b>Lastname</b></label>
+      <input type="text" placeholder="Enter Lastname" name="lastname" required>
+
+      <label for="firstname"><b>Firstname</b></label>
+      <input type="text" placeholder="Enter Firstame " name="firstname" required>
+
+      <label for="address"><b>Address</b></label>
+      <input type="text" placeholder="Enter Complete Address" name="address" required>
+
+      <label for="contact"><b>Contact Number</b></label>
+      <input type="text" placeholder="Enter Contact Number (09-)" name="contact" minlength="11" maxlength="11" required>
+
+      <label for="username"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="username" required>
+	
+	    <label for="password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password (8-20 characters)" name="password" minlength="8" maxlength="20" required>
+	
     </body>
 </html>

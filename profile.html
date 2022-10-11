@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title> My Account </title>
@@ -12,34 +13,34 @@
     <body>
 
       <!-- top navbar -->
-        <nav class="navbar sticky-top navbar-dark bg-primary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">
-                <img src="images/Logo.png" class = "logo" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-                CHUBBIES 
-              </a>
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0"> 
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-              </ul>
-              <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-light" type="submit"> <img src =  "images/search.png" id = "search"></button>
-              </form>
-        </nav>
+        <div class="navbar">
+          <img src="logo.png" alt="logo" style="height:50px;"> 
+          <a href="Login3.html">Home</a>
+          <a href="register.html">Register</a> <!--Redirect to Registration Form--> 
+          <a href="AboutUs.html">About Us</a> <!--Redirect to About Us Page--> 
+      </div>
         
         <div class = "main">
 
           <div class = "child">
             <h1> User Profile </h1>
-            <img src =  "images/image.png" class="rounded-circle border border-dark border-2" alt="100x100">
+            <img src =  "images/image.jpg" class="rounded-circle border border-dark border-2 profilepic" alt="100x100">
             </br> Name: Jan Daniel Ng  </br>
+               <button onclick="document.getElementById('iframe').src = 
+                'settings.html'">Pending Orders</button>
+                </br>
                 <button onclick="document.getElementById('iframe').src = 
                 'OrderHistory.html'">OrderHistory</button>
                 </br>
                 <button onclick="document.getElementById('iframe').src = 
+                'OrderHistory.html'">Favorites</button>
+                </br>
+                <button onclick="document.getElementById('iframe').src = 
                 'settings.html'">Account Settings</button>
+                </br>
+                <a href ="Login3.html">
+                  <button> Logout </button>
+                </a>
           </div>
        
         <!-- iframe -->
@@ -48,17 +49,12 @@
           </div>  
       </div>
 
-        <!-- bottom navbar -->
-          <nav class="navbar fixed-bottom navbar-dark bg-primary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">Contact Us: </a>
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0"> 
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Gmail</a>
-                </li>
-              </ul>
-              <button onclick="topFunction()" id="myBtn" title="Go to top"> Back to Top </button>
-            </div>
-          </nav>
+      <div class="footer">
+        <p>© 2022 Chubbies. All rights reserved.</p>
+        <a href="https://www.facebook.com/" class="fa fa-facebook"> </a>
+        <a href="https://twitter.com/?lang=en" class="fa fa-twitter"></a>
+        <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+      </div>
+
       </body>
 </html>
