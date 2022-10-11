@@ -13,39 +13,42 @@
     <body>
 
       <!-- top navbar -->
-        <div class="navbar">
-          <img src="logo.png" alt="logo" style="height:50px;"> 
+        <div class="bar">
+          <img src="images/logo.png" alt="logo" style="height:50px;"> 
           <a href="Login3.html">Home</a>
           <a href="register.html">Register</a> <!--Redirect to Registration Form--> 
           <a href="AboutUs.html">About Us</a> <!--Redirect to About Us Page--> 
       </div>
         
         <div class = "main">
-
-          <div class = "child">
+          <div class = "child" id = "left">
+            <div class = "headers align-middle">
             <h1> User Profile </h1>
-            <img src =  "images/image.jpg" class="rounded-circle border border-dark border-2 profilepic" alt="100x100">
-            </br> Name: Jan Daniel Ng  </br>
-               <button onclick="document.getElementById('iframe').src = 
+              <img src =  "images/image.jpg" class="rounded-circle border border-dark border-2 profilepic" alt="100x100">
+              </br> Name: Jan Daniel Ng 
+            </div> 
+          
+            </br>
+               <button class ="btn btn-1 btn-sep icon-info" onclick="document.getElementById('iframe').src = 
                 'settings.html'">Pending Orders</button>
                 </br>
-                <button onclick="document.getElementById('iframe').src = 
+                <button class ="btn btn-2 btn-sep icon-cart"onclick="document.getElementById('iframe').src = 
                 'OrderHistory.html'">OrderHistory</button>
                 </br>
-                <button onclick="document.getElementById('iframe').src = 
+                <button class = "btn btn-3 btn-sep icon-heart"onclick="document.getElementById('iframe').src = 
                 'OrderHistory.html'">Favorites</button>
                 </br>
-                <button onclick="document.getElementById('iframe').src = 
+                <button class ="btn btn-1 btn-sep icon-info" onclick="document.getElementById('iframe').src = 
                 'settings.html'">Account Settings</button>
                 </br>
                 <a href ="Login3.html">
-                  <button> Logout </button>
+                  <button class ="btn btn-4 btn-sep icon-send"> Logout </button>
                 </a>
           </div>
        
         <!-- iframe -->
-          <div class ="child">
-            <iframe src= "settings.html" id = "iframe" class = "iframe" name = "iframe" title="Iframe"></iframe>
+          <div class ="child" id = "right">
+            <iframe src= "firstscreen.html" id = "iframe" class = "iframe" name = "iframe" title="Iframe"></iframe>
           </div>  
       </div>
 
