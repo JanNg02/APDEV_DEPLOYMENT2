@@ -56,7 +56,6 @@ body {
   width: 50%;
   float: left;
   padding: 20px;  
-  border-color:#2c3e50;
 }
 
 #left{
@@ -85,6 +84,22 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  color: grey;
+}
+
+.fa-twitter {
+  color: grey;
+}
+
+.fa-instagram {
+  color: grey;
 }
 
 /* General button style */
