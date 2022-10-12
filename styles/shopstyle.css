@@ -42,10 +42,20 @@
   height: 400px;
 }
 
+.checked {
+  color: orange;
+}
+
+.product-container{
+  margin-right: 50px;
+}
+
+.products{
+  text-align:center; 
+}
 
 /*footer*/
 .footer {
-    position:fixed; 
     padding: 20px 0px;
     text-align: center;
     background: #ddd;
