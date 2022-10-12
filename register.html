@@ -84,7 +84,7 @@ a {
   <br>
 
   <!--Registration Form--> 
-  <form>
+  <form action="Login3.html" id="regForm">
     <div class="container">
       <h1>Registration Form</h1>
       <p>Please fill in this form to create an account.</p>
@@ -105,7 +105,7 @@ a {
       <label for="username"><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="username" required>
 	
-	    <label for="password"><b>Password</b></label>
+      <label for="password"><b>Password</b></label>
       <input type="password" placeholder="Enter Password (8-20 characters)" name="password" minlength="8" maxlength="20" required>
 	
       <hr>
@@ -119,5 +119,14 @@ a {
     </div>
   </form>
 
+
+  <script>
+    document.getElementById("regForm").addEventListener("submit", ifValid);
+
+    function ifValid() {
+      alert("You have successcully registered! Please wait!!");
+    }
+ 
+  </script>
 </body>
 </html>

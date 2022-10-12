@@ -175,7 +175,7 @@ span.psw {
 
 <!--Login Form--> 
 <div id="id01" class="login">
-	<form class="login-content" >
+	<form class="login-content" action="" id="loginForm">
     <div class="imgcontainer">
 		  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 		  <img src="images/icon.jpg" alt="Avatar" class="avatar">
@@ -188,7 +188,7 @@ span.psw {
 		  <label for="pass"><b>Password</b></label>
 		  <input type="password" placeholder="Enter Password" name="pass" id="pass" minlength="5" maxlength="20" required>
 
-		  <button  onclick="ifValid(this)" id="submit">Login</button>
+		  <button id="submit">Login</button>
 		  <label>
 			  <input type="checkbox" checked="unchecked" name="remember"> Remember me
 		  </label>
@@ -205,8 +205,20 @@ span.psw {
 </div>
 
 <script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+  var modal = document.getElementById('id01');
+
+  document.getElementById("loginForm").addEventListener("submit", ifValid);
+
+  function ifValid() {
+    alert("Loading..... Please wait!!");
+  }
+
+  // Close login page when the user clicks anywhere outside of the login page.
+  window.onclick = function(event) {
+	if (event.target == modal) {
+		modal.style.display = "none";
+	}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+  }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 </script>
 
 </body>
