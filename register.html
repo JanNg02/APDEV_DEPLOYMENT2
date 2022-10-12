@@ -3,14 +3,12 @@
 <html>
 <head>
 	<title>Register Account</title>
-  <link rel="stylesheet" type="text/css" media="all" href="styles/initialstyle.css">
+  <link rel="stylesheet" type="text/css" media="all" href="initialstyle.css">
 <style>
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #d5eef7fc;
 }
-
-
 
 /* Registration CSS */
 * {
@@ -105,13 +103,13 @@ a {
       <label for="username"><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="username" required>
 	
-      <label for="password"><b>Password</b></label>
+	    <label for="password"><b>Password</b></label>
       <input type="password" placeholder="Enter Password (8-20 characters)" name="password" minlength="8" maxlength="20" required>
 	
       <hr>
       <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-      <button type="submit" class="registerbtn">Register</button>
+      <button  type="submit" class="registerbtn">Register</button>
     </div>
 
     <div class="container signin">
@@ -119,14 +117,14 @@ a {
     </div>
   </form>
 
-
   <script>
+
     document.getElementById("regForm").addEventListener("submit", ifValid);
 
     function ifValid() {
       alert("You have successcully registered! Please wait!!");
     }
  
-  </script>
+    </script>
 </body>
 </html>
