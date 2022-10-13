@@ -66,6 +66,10 @@ td {
   font-size: 10px;
 }
 
+.like {
+  height:50px; 
+  width: 50px; 
+}
 /*footer*/
 .footer {
     padding: 20px 0px;
