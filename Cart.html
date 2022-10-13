@@ -51,6 +51,35 @@ body, html {
   color: white;
 }
 
+.bar {
+  overflow: hidden;
+  margin-top: 0%;
+  background-color: rgba(14, 110, 188, 0.863);
+}
+
+.bar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 25px;
+  text-decoration: none;
+}
+
+.bar img {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.bar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
 /* Footer CSS*/
 
 .fa {
@@ -68,13 +97,11 @@ body, html {
 <body>
 
 <!--Navigation Bar--> 
-<div class="navbar">
+<div class="bar">
     <img src="images/logo.png" alt="logo" style="height:50px;"> 
-    <a href="Login3.html">Home</a>
-    <a href="register.html">Register</a> <!--Redirect to Registration Form--> 
+    <a href="shop.html">Home</a>
     <a href="AboutUs.html">About Us</a> <!--Redirect to About Us Page--> 
     <a href="profile.html">Profile</a>
-    <a href="shop.html">Shop</a> 
     <a href="Cart.html">Cart</a> 
 </div>
 
@@ -82,7 +109,7 @@ body, html {
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12">
-          <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+          <div class="card card-registration card-registration-2">
             <div class="card-body p-0">
               <div class="row g-0">
                 <div class="col-lg-8">
@@ -96,32 +123,20 @@ body, html {
                     <div class="row mb-4 d-flex justify-content-between align-items-center">
                       <div class="col-md-2 col-lg-2 col-xl-2">
                         <img
-                          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp"
-                          class="img-fluid rounded-3" alt="Cotton T-shirt">
+                          src="images/allergyease.jpg"
+                          class="img-fluid rounded-3" alt="Allergy Ease">
                       </div>
                       <div class="col-md-3 col-lg-3 col-xl-3">
-                        <h6 class="text-muted">Shirt</h6>
-                        <h6 class="text-black mb-0">Cotton T-shirt</h6>
+                        <h6 class="text-muted">Medicine</h6>
+                        <h6 class="text-black mb-0">Allergyease</h6>
                       </div>
-                      <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                        <button class="btn btn-link px-2"
-                          onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                          <i class="fas fa-minus"></i>
-                        </button>
-  
+                      <div class="col-md-3 col-lg-3 col-xl-2 d-flex"> 
                         <input id="form1" min="0" name="quantity" value="1" type="number"
                           class="form-control form-control-sm" />
-  
-                        <button class="btn btn-link px-2"
-                          onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                          <i class="fas fa-plus"></i>
                         </button>
                       </div>
                       <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <h6 class="mb-0">€ 44.00</h6>
-                      </div>
-                      <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                        <h6 class="mb-0">$900.00</h6>
                       </div>
                     </div>
   
@@ -130,32 +145,20 @@ body, html {
                     <div class="row mb-4 d-flex justify-content-between align-items-center">
                       <div class="col-md-2 col-lg-2 col-xl-2">
                         <img
-                          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img6.webp"
-                          class="img-fluid rounded-3" alt="Cotton T-shirt">
+                          src="images/heartgard.jpg"
+                          class="img-fluid rounded-3" alt="Heartgard">
                       </div>
                       <div class="col-md-3 col-lg-3 col-xl-3">
-                        <h6 class="text-muted">Shirt</h6>
-                        <h6 class="text-black mb-0">Cotton T-shirt</h6>
+                        <h6 class="text-muted">Medicine</h6>
+                        <h6 class="text-black mb-0">Heartgard</h6>
                       </div>
                       <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                        <button class="btn btn-link px-2"
-                          onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                          <i class="fas fa-minus"></i>
-                        </button>
-  
                         <input id="form1" min="0" name="quantity" value="1" type="number"
                           class="form-control form-control-sm" />
-  
-                        <button class="btn btn-link px-2"
-                          onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                          <i class="fas fa-plus"></i>
-                        </button>
                       </div>
                       <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <h6 class="mb-0">€ 44.00</h6>
-                      </div>
-                      <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                        <h6 class="mb-0">$67.99
+                        </h6>
                       </div>
                     </div>
   
@@ -164,41 +167,23 @@ body, html {
                     <div class="row mb-4 d-flex justify-content-between align-items-center">
                       <div class="col-md-2 col-lg-2 col-xl-2">
                         <img
-                          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img7.webp"
-                          class="img-fluid rounded-3" alt="Cotton T-shirt">
+                          src="images/nexgard.png"
+                          class="img-fluid rounded-3" alt="Nexguard">
                       </div>
                       <div class="col-md-3 col-lg-3 col-xl-3">
-                        <h6 class="text-muted">Shirt</h6>
-                        <h6 class="text-black mb-0">Cotton T-shirt</h6>
+                        <h6 class="text-muted">Medicine</h6>
+                        <h6 class="text-black mb-0">Nexguard</h6>
                       </div>
                       <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                        <button class="btn btn-link px-2"
-                          onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                          <i class="fas fa-minus"></i>
-                        </button>
-  
                         <input id="form1" min="0" name="quantity" value="1" type="number"
                           class="form-control form-control-sm" />
-  
-                        <button class="btn btn-link px-2"
-                          onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                          <i class="fas fa-plus"></i>
-                        </button>
                       </div>
                       <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <h6 class="mb-0">€ 44.00</h6>
-                      </div>
-                      <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                        <h6 class="mb-0">$72.99</h6>
                       </div>
                     </div>
   
                     <hr class="my-4">
-  
-                    <div class="pt-5">
-                      <h6 class="mb-0"><a href="#!" class="text-body"><i
-                            class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
-                    </div>
                   </div>
                 </div>
                 <div class="col-lg-4 bg-grey">
@@ -208,25 +193,23 @@ body, html {
   
                     <div class="d-flex justify-content-between mb-4">
                       <h5 class="text-uppercase">items 3</h5>
-                      <h5>€ 132.00</h5>
+                      <h5>$1040.98</h5>
                     </div>
   
-                    <h5 class="text-uppercase mb-3">Shipping</h5>
+                    <h5 class="text-uppercase">Shipping</h5>
   
                     <div class="mb-4 pb-2">
                       <select class="select">
-                        <option value="1">Standard-Delivery- €5.00</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                        <option value="4">Four</option>
+                        <option value="1">Standard Delivery - $5.00</option>
+                        <option value="2">Express Delivery - $10.00</option>
                       </select>
                     </div>
   
-                    <h5 class="text-uppercase mb-3">Give code</h5>
+                    <h5 class="text-uppercase mb-3">PROMO</h5>
   
                     <div class="mb-5">
                       <div class="form-outline">
-                        <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
+                        <input type="text" id="form3Examplea2" class="form-control form-control-lg mb-3" />
                         <label class="form-label" for="form3Examplea2">Enter your code</label>
                       </div>
                     </div>
@@ -234,12 +217,12 @@ body, html {
                     <hr class="my-4">
   
                     <div class="d-flex justify-content-between mb-5">
-                      <h5 class="text-uppercase">Total price</h5>
-                      <h5>€ 137.00</h5>
+                      <h5 class="text-uppercase">Total</h5>
+                      <h5>$1045.98</h5>
                     </div>
   
                     <button type="button" class="btn btn-dark btn-block btn-lg"
-                      data-mdb-ripple-color="dark">Register</button>
+                      data-mdb-ripple-color="dark">Check Out</button>
   
                   </div>
                 </div>
