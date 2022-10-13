@@ -79,10 +79,19 @@ body {
   background: #ddd;
   height: 100px;
   width: 100%;
-  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.fa {
+    padding: 10px;
+    font-size: 20px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 1px 0px;
+    border-radius: 50%;
 }
 
 .fa:hover {
