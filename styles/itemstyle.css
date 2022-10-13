@@ -37,6 +37,11 @@
     max-width: 100%; 
 }
 
+.like {
+  height:50px; 
+  width: 50px; 
+}
+
 /* Footer CSS*/
 .footer {
     padding: 20px 0px;
