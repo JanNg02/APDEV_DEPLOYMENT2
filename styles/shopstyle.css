@@ -1,5 +1,4 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
-
 /*header*/
 .logo{
     height: 70px; 
@@ -70,6 +69,18 @@ td {
   height:50px; 
   width: 50px; 
 }
+
+.btn{
+  background: transparent;
+  border: none;
+  outline: none;
+  color: grey;
+}
+
+.btn i:hover{
+  cursor: pointer;
+}
+
 /*footer*/
 .footer {
     padding: 20px 0px;
