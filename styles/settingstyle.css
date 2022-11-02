@@ -1,13 +1,11 @@
 * {
-    box-sizing: border-box;
-    position: relative;
+    position: flex;
   }
   
   .container {
-    padding: 16px;
     background-color: white;
       width:70%;
-      left:15%;
+      right:15%;
   }
   
   input[type=text], input[type=password], 
