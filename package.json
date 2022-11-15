@@ -1,0 +1,25 @@
+{
+  "name": "apdevmp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JanNg02/APDEVMP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JanNg02/APDEVMP/issues"
+  },
+  "homepage": "https://github.com/JanNg02/APDEVMP#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^4.11.0",
+    "mongoose": "^6.7.2",
+    "nodemon": "^2.0.20"
+  }
+}
