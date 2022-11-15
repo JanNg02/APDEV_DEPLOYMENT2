@@ -6,7 +6,7 @@ app.use(express.static(__dirname + '/Public'));
 app.use(express.static(__dirname));
 
 app.get("/",function(req,res){
-    res.sendFile(__dirname + "/shop.html");
+    res.sendFile(__dirname + "/Login3.html");
 })
 
 port = 3000; 
