@@ -1,15 +1,24 @@
 const express = require("express"); 
-//const routes = require ("./routes.html"); 
+const router = require('./routes.js'); 
+
 const app = express();
 
+//for css, js and images and such
 app.use(express.static(__dirname + '/Public'));
 app.use(express.static(__dirname));
 
-app.get("/",function(req,res){
-    res.sendFile(__dirname + "/Login3.html");
-})
+//Ejs enabled   
+app.set('view engine', 'ejs');
+app.set('views', 'view'); 
 
 port = 3000; 
 app.listen(port, function(){
     console.log("Server is running at port: " + port)
 }); 
+
+
+app.use("/",router); 
+
+/*app.get("/",function(req,res){
+    res.render("shop");
+})*/
