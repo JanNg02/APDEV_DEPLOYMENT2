@@ -7,6 +7,10 @@ const controller = {
 		res.render('shop');
 	},
 
+	generateAboutUs: function (req,res){
+		res.render('AboutUs2');
+	},
+
     generateProfile: function (req,res){
 		res.render('profile');
 	},

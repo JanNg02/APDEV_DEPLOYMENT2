@@ -11,33 +11,54 @@ html {
 }
   
 /* Navigation Bar CSS */
-.navbar {
-    overflow: hidden;
-    margin-top: 0%;
-    background-color: rgba(14, 110, 188, 0.863);
+.logo{
+    height: 50px; 
+    width: 50px; 
 }
-  
-.navbar a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 15px 25px;
-    text-decoration: none;
+
+.bar {
+  overflow: hidden;
+  margin-top: 0%;
+  background-color: rgba(14, 110, 188, 0.863);
 }
-  
-.navbar img {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    margin-left: 10px;
-    text-decoration: none;
+
+.bar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 25px;
+  text-decoration: none;
 }
-  
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
+
+.bar button {
+  float: left;
+  display: block;
+  background-color: rgba(14, 110, 188, 0.863);
+  color: white;
+  text-align: center;
+  padding: 15px 25px;
+  text-decoration: none;
+  border: none; 
+}
+
+.bar img {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.bar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.bar button:hover {
+  background-color: #ddd;
+  color: black;
 }
 
 
