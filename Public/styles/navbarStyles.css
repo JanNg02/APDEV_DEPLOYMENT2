@@ -1,24 +1,24 @@
-.logo{
-    height: 50px; 
-    width: 50px; 
-}
-
 .bar {
   overflow: hidden;
   margin-top: 0%;
   background-color: rgba(14, 110, 188, 0.863);
 }
 
-.bar a {
-  float: left;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 15px 25px;
-  text-decoration: none;
+.logo{
+  height: 50px; 
+  width: 50px; 
 }
 
-.bar button {
+.bar .logoDiv {
+  width: 10%; 
+  align-items: center;
+}
+
+.bar .buttonDiv {
+  width: 90%; 
+}
+
+.buttonDiv button {
 	float: left;
 	display: block;
 	background-color: rgba(14, 110, 188, 0.863);
@@ -27,6 +27,8 @@
 	padding: 15px 25px;
 	text-decoration: none;
 	border: none; 
+  width: 15%;
+  height: 50px; 
   }
 
 .bar img {
@@ -38,10 +40,6 @@
   text-decoration: none;
 }
 
-.bar a:hover {
-  background-color: #ddd;
-  color: black;
-}
 
 .bar button:hover {
 	background-color: #ddd;

@@ -14,6 +14,10 @@ const controller = {
     generateProfile: function (req,res){
 		res.render('profile');
 	},
+
+    generateAdminView: function (req,res){
+		res.render('adminView');
+	},
 }
 
 module.exports = controller;
