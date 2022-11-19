@@ -22,7 +22,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'view'); 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//This is the part to comment out after running once 
+/*This is the part to comment out after running once 
 addEntry.newUser1(); 
 addEntry.newUser2();
 addEntry.newUser3(); 
@@ -40,6 +40,7 @@ addEntry.newOrder2();
 addEntry.newOrder3(); 
 addEntry.newOrder4();
 addEntry.newOrder5(); 
+*/
 
 port = 3000; 
 app.listen(port, function(){
@@ -48,7 +49,3 @@ app.listen(port, function(){
 
 
 app.use("/",router); 
-
-/*app.get("/",function(req,res){
-    res.render("shop");
-})*/
