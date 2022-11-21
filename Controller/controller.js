@@ -1,6 +1,5 @@
-const User = require('/Users/JM/Documents/GitHub/APDEVMP/model/usersSchema');
-
-const Order = require('/Users/JM/Documents/GitHub/APDEVMP/model/orderSchema');
+const User = require('../model/usersSchema');
+const Order = require('../model/orderSchema');
 const bcrypt = require("bcrypt") ;
 const Product = require('../model/productsSchema.js');
 
@@ -37,6 +36,31 @@ const controller = {
             title: 'Registration Form'
         });
     },
+
+	addItems: async function(req,res) {
+		let productName = req.body.productName; 
+		let productPrice = req.body.price;
+		let productStock = req.body.stock;
+		let productDescrip = req.body.description;
+		let productImg = req.body.productImage;
+		let productCat = req.body.productCategory;
+
+		Product.create({
+			name: productName, 
+			category: productCat, 
+			price: productPrice, 
+			stock: productStock, 
+			description: productDescrip,
+			pic: productImg 
+		},
+		   function(err, result){
+			   if(result){
+				   	console.log("Added Succesfully"); 
+					res.redirect('/adminAdd')
+			   }
+		   }
+		); 
+   },
 
     saveUser: async function(req, res){
 		const hashedPassword = await bcrypt.hash(req.body.password, 10);
