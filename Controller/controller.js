@@ -2,6 +2,7 @@ const User = require('../model/usersSchema');
 const Order = require('../model/orderSchema');
 const bcrypt = require("bcrypt") ;
 const Product = require('../model/productsSchema.js');
+const { raw } = require('body-parser');
 
 
 
@@ -31,11 +32,31 @@ const controller = {
 		res.render('adminView');
 	},
 
+	generateAdminAdd: function (req,res){
+		res.render('adminAdd'); 
+	}, 
+
+	generateRemoveAdmin: function (req,res){
+		res.render('adminRemove'); 
+	}, 
+
 	generateRegis: function(req, res) {
         res.render('register', {
             title: 'Registration Form'
         });
     },
+
+	generateItemPage: async function (req,res){
+		var product = req.body.showProduct; 
+
+		//console.log(product); 
+		var item = Product.findOne({name: product}); 
+		 
+		item.exec(function(err,data){
+			if(err) throw err;
+			res.render('item', {Item:data});
+		});
+	},
 
 	addItems: async function(req,res) {
 		let productName = req.body.productName; 
@@ -141,14 +162,6 @@ const controller = {
 	  })
   },
   */
-
-	generateAdminAdd: function (req,res){
-		res.render('adminAdd'); 
-	}, 
-
-	generateRemoveAdmin: function (req,res){
-		res.render('adminRemove'); 
-	}, 
 
 	addItems: async function(req,res) {
 		let productName = req.body.productName; 

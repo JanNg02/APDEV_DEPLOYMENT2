@@ -12,17 +12,19 @@ app.get('/AboutUs2', controller.generateAboutUs);
 app.get('/profile', controller.generateProfile);
 app.get('/adminView', controller.generateAdminView);
 
-//Admin View
+//Login
 app.post('/save', controller.saveUser);
 app.get('/register', controller.generateRegis);
 //app.post('/login', controller.login)
 
+//Admin View
 //Admin Add
 app.get('/adminAdd', controller.generateAdminAdd); 
 app.post('/add', controller.addItems);
 
 // Admin Remove
-app.get('/adminRemove', controller.generateRemoveAdmin); 
+app.post('/item', controller.generateItemPage); 
 
+//Item
 
 module.exports = app; 

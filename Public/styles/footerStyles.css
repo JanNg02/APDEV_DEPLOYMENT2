@@ -4,11 +4,11 @@
     text-align: center;
     background: #ddd;
     height: 100px;
-    width: 100%;
     bottom: 0;
-    left: 0;
-    right: 0;
-    margin-bottom: 0%;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
  }
 
 .fa {

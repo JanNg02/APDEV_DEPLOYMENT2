@@ -1,33 +1,4 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
-.bar {
-    overflow: hidden;
-    margin-top: 0%;
-    background-color: rgba(14, 110, 188, 0.863);
-}
-  
-.bar a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 15px 25px;
-    text-decoration: none;
-}
-  
-.bar img {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    margin-left: 10px;
-    text-decoration: none;
-}
-  
-.bar a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
 .checked {
     color: orange;
   }
@@ -41,6 +12,7 @@
   height:50px; 
   width: 50px; 
 }
+
 body {
     background-color: #f7f6f6
 }
@@ -50,7 +22,6 @@ body {
     box-shadow: 5px 6px 6px 2px #e9ecef;
     border-radius: 4px;
 }
-
 
 .dots{
   height: 4px;
@@ -67,6 +38,14 @@ body {
         padding-right: 9px;
     padding-left: 16px;
     box-shadow: 5px 6px 6px 2px #e9ecef;
+}
+
+.buttonDiv btn1{
+    width: 50%
+}
+
+.buttonDiv btn2 {
+    width: 50%; 
 }
 
 .user-img{
@@ -110,38 +89,9 @@ body {
 
 }
 
-
 .reply small:hover{
 
     color: green;
     cursor: pointer;
 
-}
-
-/* Footer CSS*/
-.footer {
-    padding: 20px 0px;
-    text-align: center;
-    background: #ddd;
-    height: 100px;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-.fa:hover {
-    opacity: 0.7;
-}
-
-.fa-facebook {
-  color: grey;
-}
-
-.fa-twitter {
-  color: grey;
-}
-
-.fa-instagram {
-  color: grey;
 }

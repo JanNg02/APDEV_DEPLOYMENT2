@@ -1,0 +1,172 @@
+ <table> 
+          <tr>
+            <td>  
+            <!--products--> 
+            <div class="card border-dark mb-3 text-bg-light mb-3 prdoduct-container" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="images/allergyease.jpg" class="img-fluid rounded-start table-image" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Allergyease</h5>
+                    <!--stars-->
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+
+                    <p class="card-text"> Allergy Medicine </p>
+                    <p class="card-text"> $900 </p>
+                    <Button onclick="Toggle()" id="favorites" class="btn"><i class="fa fa-heart fa-2x"></i></Button>
+                    &nbsp; 
+                    <a href ="Cart.html">
+                      <button class ="btn btn-4 btn-sep icon-send button"> <img src = "images/cart.png" class ="like"> </button>
+                    </a>  
+                    <a href ="item.html">
+                      <button class ="btn btn-4 btn-sep icon-send button"> <img src="images/more.png" height ="30" width="30"/> </button>
+                    </a> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          
+          <!--products-->
+          <td> 
+            <div class="card border-dark mb-3 text-bg-light mb-3 prdoduct-container" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="images/heartgard.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Heartgard</h5>
+                    <!--stars-->
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+
+                    <p class="card-text"> Allergy Medicine </p>
+                    <p class="card-text"> $67.99 </p>
+                    <Button onclick="Toggle()" id="favorites" class="btn"><i class="fa fa-heart fa-2x"></i></Button>
+                    &nbsp;
+                    <a href ="Cart.html">
+                      <button class ="btn btn-4 btn-sep icon-send button"> <img src = "images/cart.png" class ="like"> </button>
+                    </a> 
+                    <a href ="item2.html">
+                      <button class ="btn btn-4 btn-sep icon-send button"> <img src="images/more.png" height ="30" width="30"/> </button>
+                    </a> 
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+        </td>
+
+          <td>
+            <!--products--> 
+            <div class="card border-dark mb-3 text-bg-light mb-3 prdoduct-container" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="images/catMed.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Revolution Plus</h5>
+                    <!--stars-->
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+
+                    <p class="card-text"> Allergy Medicine </p>
+                    <p class="card-text"> $133.99 </p>
+                    <Button onclick="Toggle()" id="favorites" class="btn"><i class="fa fa-heart fa-2x"></i></Button>
+                    &nbsp; 
+                    <a href ="Cart.html">
+                      <button class ="btn btn-4 btn-sep icon-send button">  <img src = "images/cart.png" class ="like"> </button>
+                    </a> 
+                    <a href ="item3.html">
+                      <button class ="btn btn-4 btn-sep icon-send button"> <img src="images/more.png" height ="30" width="30"/> </button>
+                    </a> 
+                  </div>
+                </div>
+              </div>
+            </div>
+            </td>
+          </tr>
+          
+          <tr>
+          <!--products-->
+            <td> 
+              <div class="card border-dark mb-3 text-bg-light mb-3 prdoduct-container" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="images/nexgard.png" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Nexgard</h5>
+                          <!--stars-->
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+
+                          <p class="card-text"> Anti-Fleas </p>
+                          <p class="card-text"> $72.99 </p>
+                          <Button onclick="Toggle()" id="favorites" class="btn"><i class="fa fa-heart fa-2x"></i></Button>
+                          &nbsp;
+                          <a href ="Cart.html">
+                            <button class ="btn btn-4 btn-sep icon-send button">  <img src = "images/cart.png" class ="like"> </button>
+                          </a> 
+                          <a href ="item4.html">
+                            <button class ="btn btn-4 btn-sep icon-send button"> <img src="images/more.png" height ="30" width="30"/> </button>
+                        </a> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+
+            <!--products--> 
+            <td>
+              <div class="card border-dark mb-3 text-bg-light mb-3 prdoduct-container" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="images/simparica.png" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Simparica</h5>
+                      <!--stars-->
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+
+                      <p class="card-text"> Allergy Medicine </p>
+                      <p class="card-text"> $168.41 </p>
+                      <Button onclick="Toggle()" id="favorites" class="btn"><i class="fa fa-heart fa-2x"></i></Button>
+                      &nbsp; 
+                      <a href ="Cart.html">
+                        <button class ="btn btn-4 btn-sep icon-send button">  <img src = "images/cart.png" class ="like"> </button>
+                      </a> 
+                      <a href ="item5.html">
+                        <button class ="btn btn-4 btn-sep icon-send button"> <img src="images/more.png" height ="30" width="30"/> </button>
+                      </a> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>-->
