@@ -23,8 +23,10 @@ app.get('/adminAdd', controller.generateAdminAdd);
 app.post('/add', controller.addItems);
 
 // Admin Remove
-app.post('/item', controller.generateItemPage); 
+
+//Shop
 
 //Item
+app.post('/item', controller.generateItemPage); 
 
 module.exports = app; 
