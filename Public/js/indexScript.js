@@ -1,43 +1,61 @@
+$(document).ready(function(){
+
+    document.getElementById("bmodal").addEventListener("click",showForm, false);
+    document.getElementById("bmodal2").addEventListener("click",hideForm, false);
+   
+    function showForm(){
+        document.getElementById("id01").style.display="block";
+    }
+
+    function hideForm(){
+        document.getElementById("id01").style.display="none";
+    }
     // JS for submission of login form
-    document.getElementById("loginForm").addEventListener("submit", ifValid); //triggers when submit button is clicked
+    //document.getElementById("loginForm").addEventListener("submit", ifValid); //triggers when submit button is clicked
     
-    function ifValid() { //function that displays a message if the login credentials are valid
-        alert("Loading..... Please wait!!");
-    }
+    //function ifValid() { //function that displays a message if the login credentials are valid
+        //alert("Loading..... Please wait!!");
+    //}
 
+     
     //JS for Product Preview
-    let x = 1; //indicates the product number
-    displayProd(x);
+    var currentSlide = 0;
+    const slides = document.querySelectorAll(".products")
+    const dots = document.querySelectorAll('.indicator')
 
-    function nextProd(n) { //calls displayProd function to determine the next product to be displayed
-        displayProd(x += n);
+    const init = (n) => {
+        slides.forEach((slide) => {
+            slide.style.display = "none"
+            dots.forEach((dot) => {
+                dot.classList.remove("active")
+            })
+        })
+        slides[n].style.display = "block"
+        dots[n].classList.add("active")
     }
 
-    function show(n) { //calls displayProd function to determine the product to be displayed
-        displayProd(x = n);
+    document.addEventListener("DOMContentLoaded", init(currentSlide))
+    const next = () => {
+        currentSlide >= slides.length - 1 ? currentSlide = 0 : currentSlide++
+        init(currentSlide)
     }
-
-    function displayProd(n) { //function that determines the product to be displayed
-        let i;
-        if (n > document.getElementsByClassName("products").length) { //first product
-        x = 1
-        }
-
-        if (n < 1) { //last product
-        x = document.getElementsByClassName("products").length
-        }
-
-        for (i = 0; i < document.getElementsByClassName("products").length; i++) { //all products should not be displayed yet
-        document.getElementsByClassName("products")[i].style.display = "none";  
-        }
-
-        for (i = 0; i < document.getElementsByClassName("indicator").length; i++) { //replaces active indicators to not active
-        document.getElementsByClassName("indicator")[i].className = document.getElementsByClassName("indicator")[i].className.replace(" active", "");
-        }
-
-        document.getElementsByClassName("products")[x-1].style.display = "block";  //displays the product
-        document.getElementsByClassName("indicator")[x-1].className += " active"; //displays which indicator is active
-    }
+  
+    const prev = () => {
+        currentSlide <= 0 ? currentSlide = slides.length - 1 : currentSlide--
+        init(currentSlide)
+ }
+  
+  
+    document.querySelector(".next").addEventListener('click', next)
+    document.querySelector(".prev").addEventListener('click', prev)  
+ 
+    dots.forEach((dot, i) => {
+        dot.addEventListener("click", () => {
+            console.log(currentSlide)
+            init(i)
+            currentSlide = i
+        })
+    })
 
         // Close login page when the user clicks anywhere outside of the login page.
         var modal = document.getElementById('id01');
@@ -45,5 +63,13 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
-        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-          
+        }       
+        
+        
+        // JS for submission of login form
+  //document.getElementById("loginForm").addEventListener("submit", ifValid); //triggers when submit button is clicked
+  
+  //function ifValid() { //function that displays a message if the login credentials are valid
+    //alert("Loading..... Please wait!!");
+  //}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+     })

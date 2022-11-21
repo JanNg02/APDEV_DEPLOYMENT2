@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const mongoose = require("mongoose");
 const addEntry = require("./model/dbEntries.js")
+const jwt = require("jsonwebtoken");
 
 mongoose.connect("mongodb://localhost:27017/MCO", {
     useNewUrlParser: true, 
@@ -41,6 +42,8 @@ addEntry.newOrder3();
 addEntry.newOrder4();
 addEntry.newOrder5(); 
 */
+
+//addEntry.newProduct1(); 
 
 port = 3000; 
 app.listen(port, function(){
