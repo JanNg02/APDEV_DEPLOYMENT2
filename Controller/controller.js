@@ -48,6 +48,10 @@ const controller = {
 		//res.render('orderHistory'); 
 	}, 
 
+	generateOrder: function (req,res){
+		res.render('order');
+	},
+
     generateAdminView: function (req,res){
 		res.render('adminView');
 	},

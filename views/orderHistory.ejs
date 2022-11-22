@@ -30,9 +30,10 @@
             <td><%=order.date%></td>
             <td>$<%=order.price%></td>
             <td>      
-              <a href ="orders.html">
-                <button class ="btn btn-4 btn-sep icon-send button"> <img src="images/more.png" height ="30" width="30"/> </button>
-              </a>
+                <form action="/order" method="post"> 
+                    <input type = "hidden" name = "showProduct" value = "<%=orders.orderNumber%>">
+                    <button type = "submit"> <img src="images/more.png" height ="30" width="30"/> </button> 
+                </form> 
             </td>
           </tr><%})%>
         </tbody>

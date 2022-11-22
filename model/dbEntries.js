@@ -151,6 +151,7 @@ const addEnrty = {
         const dateNow = new Date();
         const date = dateNow.toDateString() + " " + dateNow.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         var newOrder = {
+            orderNumber: 1, 
             pname: ["Heartgard"],
             username: "kawaiiwa",
             date: date,
@@ -167,6 +168,7 @@ const addEnrty = {
         const dateNow = new Date();
         const date = dateNow.toDateString() + " " + dateNow.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         var newOrder = {
+            orderNumber: 2, 
             pname: ["Heartgard", "catMed"],
             username: "kawaiiwa",
             date: date,

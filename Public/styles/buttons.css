@@ -1,3 +1,7 @@
 button{
     height: 40px; 
 }
+
+th {
+    text-align: center;
+}

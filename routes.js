@@ -19,6 +19,7 @@ app.get('/register', controller.generateRegis);
 //Profile
 app.get('/profile', controller.generateProfile);
 app.get('/orderHistory', controller.generateOrderHistory);
+app.post('/order', controller.generateOrder);
 
 //Admin View
 //Admin Add
