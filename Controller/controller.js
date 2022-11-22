@@ -40,7 +40,7 @@ const controller = {
 		
 		var orders = Order.find();
 
-		orders.exec(function(err,data){
+		orders.sort({orderNumber: 1}).exec(function(err,data){
 			if(err) throw err;
 			res.render('orderHistory', {orders:data});
 		});
@@ -48,8 +48,16 @@ const controller = {
 		//res.render('orderHistory'); 
 	}, 
 
-	generateOrder: function (req,res){
-		res.render('order');
+	generateOrder: async function (req,res){
+
+		var order = Order.findOne({orderNumber: req.body.orderView});
+		//console.log(req.body.orderView);
+		order.exec(function(err,data){
+			if(err) throw err;
+			res.render('order', {order:data1});
+		});
+		
+		//res.render('order');
 	},
 
     generateAdminView: function (req,res){
