@@ -14,7 +14,15 @@ const controller = {
 	},
 
     generateShop: function (req,res){
-		res.render('shop');
+		
+		var item = Product.find();
+
+		console.log(item); 
+		item.exec(function(err,data){
+			if(err) throw err;
+			res.render('shop', {products:data});
+		});
+		//res.render('shop');
 	},
 
 	generateAboutUs: function (req,res){
@@ -27,6 +35,18 @@ const controller = {
     generateProfile: function (req,res){
 		res.render('profile');
 	},
+
+	generateOrderHistory: function(req,res) {
+		
+		var orders = Order.find();
+
+		orders.exec(function(err,data){
+			if(err) throw err;
+			res.render('orderHistory', {orders:data});
+		});
+		
+		//res.render('orderHistory'); 
+	}, 
 
     generateAdminView: function (req,res){
 		res.render('adminView');
@@ -57,31 +77,6 @@ const controller = {
 			res.render('item', {Item:data});
 		});
 	},
-
-	addItems: async function(req,res) {
-		let productName = req.body.productName; 
-		let productPrice = req.body.price;
-		let productStock = req.body.stock;
-		let productDescrip = req.body.description;
-		let productImg = req.body.productImage;
-		let productCat = req.body.productCategory;
-
-		Product.create({
-			name: productName, 
-			category: productCat, 
-			price: productPrice, 
-			stock: productStock, 
-			description: productDescrip,
-			pic: productImg 
-		},
-		   function(err, result){
-			   if(result){
-				   	console.log("Added Succesfully"); 
-					res.redirect('/adminAdd')
-			   }
-		   }
-		); 
-   },
 
     saveUser: async function(req, res){
 		const hashedPassword = await bcrypt.hash(req.body.password, 10);

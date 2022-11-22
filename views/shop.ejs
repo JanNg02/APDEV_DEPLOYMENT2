@@ -24,16 +24,17 @@
         <%- include('./staples/Carousel.ejs') %>
 
             <!--products-->
+            <%products.forEach(product =>{%>
                 <div class="card border-dark mb-3 text-bg-light mb-3 prdoduct-container" style="max-width: 540px;">
                   <div class="row g-0">
                     <div class="col-md-4">
-                      <img src="images/heartgard.png" class="img-fluid rounded-start table-image" alt="...">
+                      <img src="images/<%=product.pic%>" class="img-fluid rounded-start table-image" alt="...">
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h5 class="card-title">Heartgard</h5>
-                        <p class="card-text"> Allergy Medicine </p>
-                        <p class="card-text"> $900 </p>
+                        <h5 class="card-title"><%=product.name%></h5>
+                        <p class="card-text"> <%=product.category%> </p>
+                        <p class="card-text"> $<%=product.price%> </p>
                         <!--<Button onclick="Toggle()" id="favorites" class="btn"><i class="fa fa-heart fa-2x"></i></Button>-->  
                           <div class = "buttonDiv"> 
                             <form action="/Cart.html" method="post">
@@ -41,13 +42,14 @@
                             </form>
                             <form action="/item" method="post">
                               <button class ="btn btn-4 btn-sep icon-send button btn2" type = "submit"> <img src="images/more.png" height ="30" width="30"/> </button>
-                              <input type = "hidden" name = "showProduct" value = "Heartgard">
+                              <input type = "hidden" name = "showProduct" value = "<%=product.name%>">
                             </form>
                           </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <%})%>
         <!--Footer--> 
         <%- include('./staples/footer.ejs') %>
     </body>

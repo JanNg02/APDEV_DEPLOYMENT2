@@ -21,6 +21,7 @@ app.use(express.urlencoded({extended: true}));
 //Ejs enabled   
 app.set('view engine', 'ejs');
 app.set('views', 'view'); 
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 /*This is the part to comment out after running once 
@@ -42,8 +43,8 @@ addEntry.newOrder3();
 addEntry.newOrder4();
 addEntry.newOrder5(); 
 */
-
-//addEntry.newProduct1(); 
+ 
+//addEntry.newProduct2(); 
 
 port = 3000; 
 app.listen(port, function(){
