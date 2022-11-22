@@ -4,13 +4,25 @@ const bodyParser = require("body-parser");
 const app = express();
 const mongoose = require("mongoose");
 const addEntry = require("./model/dbEntries.js")
-const jwt = require("jsonwebtoken");
+const session = require("express-session");
+const MongoDBSession = require("connect-mongodb-session")(session)
 
-mongoose.connect("mongodb://localhost:27017/MCO", {
+const mongoURI = "mongodb://0.0.0.0:27017/MCO"
+
+mongoose.connect(mongoURI , {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     family: 4,
-});
+    //useCreateIndex:true,
+})
+    .then((res )=> {
+        console.log("Connected");
+    })
+
+const store = new MongoDBSession({
+    uri: mongoURI ,
+    collection: "sessions",
+})
 
 //for css, js and images and such
 app.use(express.static(__dirname + '/Public'));
@@ -23,6 +35,13 @@ app.set('view engine', 'ejs');
 app.set('views', 'view'); 
 
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(session({
+    secret:'key that will sign cookie',
+    resave: false,
+    saveUninitialized:false,
+    store: store,
+}))
 
 /*This is the part to comment out after running once 
 addEntry.newUser1(); 

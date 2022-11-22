@@ -12,7 +12,7 @@
 
 
     <!--Navigation Bar--> 
-    <%- include('./staples/navbar.ejs') %>
+    <%- include('./staples/navbar2.ejs') %>
 
         <!--Home Page--> 
         <div class="home-image" >
@@ -29,7 +29,7 @@
 
         <!--Login Form--> 
         <div id="id01" class="login">
-            <form class="login-content" action="/login" id="loginForm">
+            <form class="login-content" action="/login" id="loginForm" method="post">
             <div class="imgcontainer">
                 <span  id="bmodal2" class="close">&times;</span>
                 <img src="images/icon.jpg" alt="Avatar" class="avatar">
@@ -39,8 +39,8 @@
 		  <label for="username"><b>Username</b></label>
 		  <input type="text" placeholder="Enter Username" name="username" id="uname" required>
 
-		  <label for="pass"><b>Password</b></label>
-		  <input type="password" placeholder="Enter Password" name="pass" id="pass" minlength="8" maxlength="20" required>
+          <label for="password"><b>Password</b></label>
+		  <input type="password" placeholder="Enter Password" name="password" id="password" minlength="8" maxlength="20" required>
 
 		  <button id="submit">Login</button>
 		  <label>

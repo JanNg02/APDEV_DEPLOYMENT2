@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const usersSchema = new mongoose.Schema( {
-    name: String,
-    address: String,
-    username: String,
-    password: String,
-    contact_no: String,
+    name: { type: String, required: true },
+    address: { type: String, required: true },
+    username: { type: String, required: true,  unique: true },
+    password: { type: String, required: true },
+    contact_no: { type: String, required: true },
     
 });
 //name of the schema, usersSchema (the var)

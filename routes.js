@@ -5,16 +5,24 @@ const controller = require('./Controller/controller.js');
 
 const app = express(); 
 
+const isAuth = (req, res, next)=>{
+    if(req.session.isAuth){
+        next()
+    } else {
+        res.redirect('/')
+    }
+}
+
 app.get('/', controller.startIndex);
 
-app.get('/shop', controller.generateShop);
+app.get('/shop', isAuth, controller.generateShop);
 app.get('/AboutUs2', controller.generateAboutUs);
 app.get('/adminView', controller.generateAdminView);
 
 //Login
 app.post('/save', controller.saveUser);
 app.get('/register', controller.generateRegis);
-//app.post('/login', controller.login)
+app.post('/login', controller.loginUser)
 
 //Profile
 app.get('/profile', controller.generateProfile);
