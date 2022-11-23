@@ -20,7 +20,7 @@ const controller = {
 		
 		var item = Product.find();
 
-		console.log(item); 
+		//console.log(item); 
 		item.exec(function(err,data){
 			if(err) throw err;
 			res.render('shop', {products:data});
@@ -75,7 +75,7 @@ const controller = {
 		
 		var item = Product.find();
 
-		console.log(item); 
+		//console.log(item); 
 		item.exec(function(err,data){
 			if(err) throw err;
 			res.render('adminEdit', {products:data});
@@ -87,7 +87,7 @@ const controller = {
 		
 		var item = Product.find();
 
-		console.log(item); 
+		//console.log(item); 
 		item.exec(function(err,data){
 			if(err) throw err;
 			res.render('adminRemove', {products:data});
@@ -205,8 +205,54 @@ const controller = {
    },
 
    generateItemEdit: function (req,res){
-	res.render('itemEdit'); 
+		
+		var product = req.body.showProduct; 
+
+		//console.log(product); 
+		var item = Product.findOne({name: product}); 
+		
+		item.exec(function(err,data){
+			if(err) throw err;
+			res.render('itemEdit', {Item:data});
+		});
+		//res.render('itemEdit'); 
 	}, 
+
+	editItem: function (req,res){
+		
+		let productNum = req.body.showProduct; 
+		let productName = req.body.productName; 
+		let productPrice = req.body.price;
+		let productStock = req.body.stock;
+		let productDescrip = req.body.description;
+		let productImg = req.body.productImage;
+		let productCat = req.body.productCategory;
+		
+		console.log(productNum); 
+		Product.updateOne({productNumber: productNum},{ 		   
+			
+			$set: {
+				name: productName, 
+				category: productCat, 
+				price: productPrice, 
+				stock: productStock, 
+				description: productDescrip,
+				pic: productImg
+			}, 
+
+			function(err, result){
+				if(result){
+					console.log("Updated Successfully"); 
+					res.redirect('/itemEdit')
+				} else if (err) {
+					console.log("Updated Failed"); 
+					res.redirect('/itemEdit')
+				}
+			}
+		});
+		//res.render('adminEdit'); 
+	}, 
+
 }
 
 module.exports = controller;

@@ -40,7 +40,8 @@ app.post('/del', controller.deleteItems);
 
 //Admin Edit
 app.get('/adminEdit', controller.generateAdminEdit);
-app.post('/itemEdit', controller.generateItemEdit); 
+app.post('/itemEdit', controller.generateItemEdit);
+app.post('/edit', controller.editItem); 
 
 //Item
 app.post('/item', controller.generateItemPage); 

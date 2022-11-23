@@ -79,6 +79,7 @@ const addEnrty = {
 
     newProduct1: function () {
         var newProduct = {
+            productNumber: 1, 
             name: "Alleryease",
             category:"Allergy",
             price: 900,
@@ -93,6 +94,7 @@ const addEnrty = {
 
     newProduct2: function () {
         var newProduct = {
+            productNumber: 2,
             name: "Revolution Plus",
             category:"Medicine",
             price: 133.99,
@@ -107,12 +109,13 @@ const addEnrty = {
 
     newProduct3: function () {
         var newProduct = {
+            productNumber: 3,
             name: "Heartgard",
             category:"Maintenance",
             price: 67.99,
             stock: 10,
             description: "For use in animals only. Heartgard Plus Chew for Dogs, 51-100 lbs. is a heartworm preventative that kills heartworms and also helps treat and control roundworms and hookworms. It comes in a delicious once-a-month, real-beef chew that dogs love and is safe for puppies 6 weeks and older. Head back to the dog park, reassured that your dog is protected from nasty parasites with this heartworm preventative that's trusted over 2 billion times! Your furry friend must have a current heartworm test result on file with your veterinarian in order to be prescribed heartworm medication. Please visit your veterinarian to have this test performed annually to protect your four-legged friend. Proudly sourced directly from the manufacturer or their approved distributor. Guaranteed genuine and backed by the manufacturer.", 
-            pic: "heartgard.jpg"
+            pic: "heartgard.png"
         };
         Product.create(newProduct, err => {
             if (err) console.log(err);
@@ -121,6 +124,7 @@ const addEnrty = {
 
     newProduct4: function () {
         var newProduct = {
+            productNumber: 4,
             name: "Nexgard",
             category:"Ticks and Fleas",
             price: 72.99,
@@ -135,6 +139,7 @@ const addEnrty = {
 
     newProduct5: function () {
         var newProduct = {
+            productNumber: 5,
             name: "Simparica",
             category:"Ticks and Fleas",
             price: 161.41,
