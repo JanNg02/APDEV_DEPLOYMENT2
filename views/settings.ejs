@@ -12,27 +12,23 @@
     </head>
     
     <body>
-      <form action="settings.html" id="setting">
-        <label for="lastname"><b>Lastname</b></label>     
-        <input type="text" value="Ng" name="lastname" id = "lastname" disabled>
-
-        <label for="firstname"><b>Firstname</b></label>
-        <input type="text" value="Jan Daniel Lee" name="firstname" id = "firstname" disabled>
+      <form action="/editUser" id="setting" method ="post">
+        <label for="name"><b>Name</b></label>     
+        <input type="text" value="<%=userEdit.name%>" name="name" id = "name">
 
         <label for="address"><b>Address</b></label>
-        <input type="text" value="Undella Town" name="address" id="address" disabled>
+        <input type="text" value="<%=userEdit.address%>" name="address" id="address">
 
         <label for="contact"><b>Contact Number</b></label>
-        <input type="text" value="12345678910" name="contact" minlength="11" maxlength="11" id = "contact"disabled>
+        <input type="text" value="<%=userEdit.contact_no%>" name="contact" minlength="11" maxlength="11" id = "contact">
 
         <label for="username"><b>Username</b></label>
-        <input type="text" value="kewlkid" name="username" id ="username" disabled>
+        <input type="text" value="<%=userEdit.username%>" name="username" id ="username">
     
         <label for="password"><b>Password</b></label>
-        <input type="password" value="pokemon" name="password" id = "password" minlength="8" maxlength="20" disabled>
+        <input type="password" value="<%=userEdit.password%>" name="password" id = "password" minlength="8" maxlength="20">
         
-        <input type="button" name="edit" id="edt" class="btn btn-primary btn-lg btn-block login-button" value="Edit" onclick="enable()">
-        <input type="button" name="edit" id="edt" class="btn btn-primary btn-lg btn-block login-button" value="Save" onclick="disable()">
+        <button  type="submit" class="registerbtn">Save</button>
       </form>
     </body>
 </html>

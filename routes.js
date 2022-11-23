@@ -28,6 +28,8 @@ app.post('/login', controller.loginUser)
 app.get('/profile', controller.generateProfile);
 app.get('/orderHistory', controller.generateOrderHistory);
 app.post('/order', controller.generateOrder);
+app.get('/settings', controller.generateSettings);
+app.post('/editUser', controller.editUser);  
 
 //Admin View
 //Admin Add

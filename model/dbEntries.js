@@ -233,7 +233,5 @@ const addEnrty = {
             if (err) { console.log(err); }
         });
     },
-
-
 }
 module.exports = addEnrty;

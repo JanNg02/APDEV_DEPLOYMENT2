@@ -10,7 +10,8 @@ const controller = {
     startIndex: function(req,res){
 		//req.session.isAuth = true
 		//console.log(req.session);
-		//console.log(req.session.id)
+		console.log(req.session.id)
+		console.log(req.session.username);
 		res.render('index',{
 			title: 'Welcome to Chubbies!'
 		});
@@ -20,7 +21,7 @@ const controller = {
 		
 		var item = Product.find();
 
-		//console.log(item); 
+		console.log(req.session.username);  
 		item.exec(function(err,data){
 			if(err) throw err;
 			res.render('shop', {products:data});
@@ -36,8 +37,24 @@ const controller = {
 	},
 
     generateProfile: function (req,res){
-		res.render('profile');
+		console.log(req.session.username);
+		res.render('profile', {username: req.session.username});
 	},
+
+	generateSettings: function(req,res){
+		
+		var user = req.session.username; 
+
+		console.log(user); 
+		var dbUser = User.findOne({username: user}); 
+		
+		dbUser.exec(function(err,data){
+			if(err) throw err;
+			res.render('settings', {userEdit:data});
+		});
+
+		//res.render('settings'); 
+	}, 
 
 	generateOrderHistory: function(req,res) {
 		
@@ -53,14 +70,14 @@ const controller = {
 
 	generateOrder: async function (req,res){
 
-		var order = Order.findOne({orderNumber: req.body.orderView});
+		/*var order = Order.findOne({orderNumber: req.body.orderView});
 		//console.log(req.body.orderView);
 		order.exec(function(err,data){
 			if(err) throw err;
 			res.render('order', {order:data1});
-		});
+		});*/
 		
-		//res.render('order');
+		res.render('order');
 	},
 
     generateAdminView: function (req,res){
@@ -143,7 +160,7 @@ const controller = {
     },
 
 	loginUser: async function (req, res)  {
-		const {username, password} = req.body;
+		const {username, password} = req.body; 
 
 		const user = await User.findOne({username});
 
@@ -157,6 +174,7 @@ const controller = {
 			return res.redirect('/');
 		}
 
+		req.session.username = user.username;
 		req.session.isAuth=true;
 		if(user.username == 'admin'){
 			res.redirect('/adminView');
@@ -164,7 +182,6 @@ const controller = {
 		else{
 			res.redirect('/shop');
 		}
-		
 	},
 	
 	addItems: async function(req,res) {
@@ -248,26 +265,29 @@ const controller = {
 
 	editUser: async function (req,res){
 		
-		var productNum = req.body.showProduct; 
-		var productName = req.body.productName; 
-		var productPrice = req.body.price;
-		var productStock = req.body.stock;
-		var productDescrip = req.body.description;
-		var productImg = req.body.productImage;
-		var productCat = req.body.productCategory;
+		var name = req.body.name;
+		var address = req.body.address; 
+		var contact = req.body.contanct; 
+		var userName = req.body.username; 
+		var pass = req.body.password;  
+
+		var user = req.session.username; 
+
+		const hashedPassword = await bcrypt.hash(pass, 10);
 		
-		console.log(productNum); 
-		Product.updateOne({productNumber: productNum},{$set: {name: productName, category: productCat, 
-															  price: productPrice, stock: productStock, 
-															  description: productDescrip, pic: productImg}}, 
+		console.log(user); 
+		User.updateOne({username: user},{$set: {name: name, address: address, 
+												   username: userName, password: hashedPassword, 
+												   contact_no: contact}}, 
 
 			function(err, result){
 				if(result){
-					console.log("Updated Successfully"); 
-					res.redirect('/itemEdit')
+					console.log("Updated Users Successfully"); 
+					console.log(address);
+					res.redirect('/settings')
 				} else if (err) {
-					console.log("Updated Failed"); 
-					res.redirect('/itemEdit')
+					console.log("Update Failed"); 
+					res.redirect('/settings')
 				}
 			}
 		);
