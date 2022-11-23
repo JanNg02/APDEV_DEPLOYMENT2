@@ -72,7 +72,15 @@ const controller = {
 	}, 
 
 	generateRemoveAdmin: function (req,res){
-		res.render('adminRemove'); 
+		
+		var item = Product.find();
+
+		console.log(item); 
+		item.exec(function(err,data){
+			if(err) throw err;
+			res.render('adminRemove', {products:data});
+		});
+		//res.render('adminRemove'); 
 	}, 
 
 	generateRegis: function(req, res) {
@@ -174,7 +182,14 @@ const controller = {
    
    deleteItems: async function(req,res) { 
 
-	
+	Product.deleteOne({name: req.body.showProduct}, 		   
+		
+		function(err, result){
+		if(result){
+				console.log("Removed Succesfully"); 
+			 	res.redirect('/adminRemove')
+		}
+	}); 
 	
    },
 

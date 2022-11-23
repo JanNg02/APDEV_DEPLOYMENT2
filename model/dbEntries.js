@@ -140,7 +140,7 @@ const addEnrty = {
             price: 161.41,
             stock: 10,
             descriptioin: "Help your furry friend fight off pests with Simparica Trio Chewable Tablets for Dogs! Every purchase comes with 6 treatments that are specially formulated for canine companions 8 weeks of age and older, weighing between 44.1 and 88 pounds. Simparica Trio is the first and only product that combines sarolaner, moxidectin and pyrantel in each treatment to help prevent heartworm disease, kill fleas before they can lay eggs, kill 5 types of ticks, treat and prevent flea infestations and treat and control roundworms and hookworms. And each monthly chewable tablet has a palatable liver flavor and can be taken with or without food!", 
-            pic: "simparica.jpg"
+            pic: "simparica.png"
         };
         Product.create(newProduct, err => {
             if (err) console.log(err);

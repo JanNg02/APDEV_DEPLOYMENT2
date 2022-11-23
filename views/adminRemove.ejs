@@ -23,16 +23,23 @@
           </thead>
           
           <tbody>
+            <%products.forEach(product =>{%>
             <tr>
-              <th scope="row"><button><img src = "images/dash.png" class ="dash"></button></th>
-              <td><img src = "images/allergyease.jpg" class ="product"></td>
-              <td>$900</td>
+              <th scope="row">
+                <form action="/del" method="post">
+                  <button class ="btn btn-4 btn-sep icon-send button btn2" type = "submit"> <img src = "images/dash.png" class ="dash"> </button>
+                  <input type = "hidden" name = "showProduct" value = "<%=product.name%>">
+                </form>
+              </th>
+              <td><img src = "images/<%=product.pic%>" class ="product"></td>
+              <td>$<%=product.price%></td>
               <td>      
-                <a href ="favItem.html">
-                  <button class ="btn btn-4 btn-sep icon-send button"> <img src="images/more.png" height ="30" width="30"/> </button>
-                </a>
+                <form action="/item" method="post">
+                  <button class ="btn btn-4 btn-sep icon-send button btn2" type = "submit"> <img src="images/more.png" height ="30" width="30"/> </button>
+                  <input type = "hidden" name = "showProduct" value = "<%=product.name%>">
+                </form>
               </td>
-            </tr>
+            </tr><%})%>
           </tbody>
         </table>
       </body> 

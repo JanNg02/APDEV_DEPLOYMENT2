@@ -35,6 +35,10 @@ app.get('/adminAdd', controller.generateAdminAdd);
 app.post('/add', controller.addItems);
 
 // Admin Remove
+app.get('/adminRemove', controller.generateRemoveAdmin);
+app.post('/del', controller.deleteItems);
+
+
 
 //Item
 app.post('/item', controller.generateItemPage); 
