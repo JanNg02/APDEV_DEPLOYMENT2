@@ -139,7 +139,7 @@ const controller = {
 
 		req.session.isAuth=true;
 		if(user.username == 'admin'){
-			res.redirect('/profile');
+			res.redirect('/adminView');
 		}
 		else{
 			res.redirect('/shop');
