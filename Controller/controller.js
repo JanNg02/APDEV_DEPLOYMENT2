@@ -218,27 +218,20 @@ const controller = {
 		//res.render('itemEdit'); 
 	}, 
 
-	editItem: function (req,res){
+	editItem: async function (req,res){
 		
-		let productNum = req.body.showProduct; 
-		let productName = req.body.productName; 
-		let productPrice = req.body.price;
-		let productStock = req.body.stock;
-		let productDescrip = req.body.description;
-		let productImg = req.body.productImage;
-		let productCat = req.body.productCategory;
+		var productNum = req.body.showProduct; 
+		var productName = req.body.productName; 
+		var productPrice = req.body.price;
+		var productStock = req.body.stock;
+		var productDescrip = req.body.description;
+		var productImg = req.body.productImage;
+		var productCat = req.body.productCategory;
 		
 		console.log(productNum); 
-		Product.updateOne({productNumber: productNum},{ 		   
-			
-			$set: {
-				name: productName, 
-				category: productCat, 
-				price: productPrice, 
-				stock: productStock, 
-				description: productDescrip,
-				pic: productImg
-			}, 
+		Product.updateOne({productNumber: productNum},{$set: {name: productName, category: productCat, 
+															  price: productPrice, stock: productStock, 
+															  description: productDescrip, pic: productImg}}, 
 
 			function(err, result){
 				if(result){
@@ -249,7 +242,35 @@ const controller = {
 					res.redirect('/itemEdit')
 				}
 			}
-		});
+		);
+		//res.render('adminEdit'); 
+	}, 
+
+	editUser: async function (req,res){
+		
+		var productNum = req.body.showProduct; 
+		var productName = req.body.productName; 
+		var productPrice = req.body.price;
+		var productStock = req.body.stock;
+		var productDescrip = req.body.description;
+		var productImg = req.body.productImage;
+		var productCat = req.body.productCategory;
+		
+		console.log(productNum); 
+		Product.updateOne({productNumber: productNum},{$set: {name: productName, category: productCat, 
+															  price: productPrice, stock: productStock, 
+															  description: productDescrip, pic: productImg}}, 
+
+			function(err, result){
+				if(result){
+					console.log("Updated Successfully"); 
+					res.redirect('/itemEdit')
+				} else if (err) {
+					console.log("Updated Failed"); 
+					res.redirect('/itemEdit')
+				}
+			}
+		);
 		//res.render('adminEdit'); 
 	}, 
 
