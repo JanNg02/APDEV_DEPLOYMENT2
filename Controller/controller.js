@@ -9,8 +9,8 @@ const { raw } = require('body-parser');
 const controller = {
     startIndex: function(req,res){
 		//req.session.isAuth = true
-		console.log(req.session);
-		console.log(req.session.id)
+		//console.log(req.session);
+		//console.log(req.session.id)
 		res.render('index',{
 			title: 'Welcome to Chubbies!'
 		});
@@ -69,6 +69,18 @@ const controller = {
 
 	generateAdminAdd: function (req,res){
 		res.render('adminAdd'); 
+	}, 
+
+	generateAdminEdit: function (req,res){
+		
+		var item = Product.find();
+
+		console.log(item); 
+		item.exec(function(err,data){
+			if(err) throw err;
+			res.render('adminEdit', {products:data});
+		});
+		//res.render('adminEdit'); 
 	}, 
 
 	generateRemoveAdmin: function (req,res){
@@ -190,9 +202,11 @@ const controller = {
 			 	res.redirect('/adminRemove')
 		}
 	}); 
-	
    },
 
+   generateItemEdit: function (req,res){
+	res.render('itemEdit'); 
+	}, 
 }
 
 module.exports = controller;

@@ -24,22 +24,23 @@
           
           <tbody>
             <tr>
-              <th scope="row"><button><img src = "images/edit.png" class ="edit"></button></th>
-              <td><img src = "images/allergyease.jpg" class ="product"></td>
-              <td>$900</td>
+            <%products.forEach(product =>{%>
+              <th scope="row">
+                <form action="/itemEdit" method="post">
+                    <input type = "hidden" name = "showProduct" value = "<%=product.name%>"> 
+                    <button type = "submit" class = "back">  <button> <img src = "images/edit.png" class ="edit"></button> </button> 
+                </form> 
+              </th>
+              <td><img src = "images/<%=product.pic%>" class ="product"></td>
+              <td>$<%=product.price%></td>
               <td>      
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Status
-                    </button>
-                  
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Available</a></li>
-                      <li><a class="dropdown-item" href="#">Out of Stock</a></li>
-                    </ul>
-                </div>
+                    <%if(product.stock > 0){%>
+                            Available
+                    <%} else {%>
+                            Out of Stock
+                    <%}%>
               </td>
-            </tr>
+            </tr><%})%>
           </tbody>
         </table>
       </body> 
