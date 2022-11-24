@@ -22,18 +22,21 @@
 
         <!--Carousel-->
         <%- include('./staples/Carousel.ejs') %>
-        <label for="cars">Choose a car:</label>
-        <select  name="cars" id="cars">
-          <optgroup label="Swedish Cars">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-          </optgroup>
-          <optgroup label="German Cars">
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-          </optgroup>
-        </select>
-            <!--products-->
+
+        <!--Filter-->
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categories
+            </button>
+              <ul class="dropdown-menu">
+                <form action ="/filter" method = "post">
+                  <li><button type = "submit">Ticks and Fleas</button></li>
+                  <input type = "hidden" name = "showCategory" value = "Medicine">
+                </form>
+              </ul>
+          </div>
+            
+        <!--products-->
             <%products.forEach(product =>{%>
                 <div class="card border-dark mb-3 text-bg-light mb-3 prdoduct-container" style="max-width: 540px;">
                   <div class="row g-0">
@@ -43,8 +46,8 @@
                     <div class="col-md-8">
                       <div class="card-body">
                         <h5 class="card-title"><%=product.name%></h5>
-                        <p class="card-text"> <%=product.category%> </p>
-                        <p class="card-text"> $<%=product.price%> </p>
+                        <p class="card-text"><%=product.category%> </p>
+                        <p class="card-text">$<%=product.price%> </p>
                         <!--<Button onclick="Toggle()" id="favorites" class="btn"><i class="fa fa-heart fa-2x"></i></Button>-->  
                           <div class = "buttonDiv"> 
                             <form method="post" action="/cart">

@@ -19,6 +19,9 @@ app.get('/shop', isAuth, controller.generateShop);
 app.get('/AboutUs2', controller.generateAboutUs);
 app.get('/adminView', controller.generateAdminView);
 
+//Filter
+app.post('/filter', controller.generateFiltered); 
+
 //Login
 app.post('/save', controller.saveUser);
 app.get('/register', controller.generateRegis);

@@ -3,6 +3,7 @@ const Order = require('../model/orderSchema');
 const Cart = require('../model/cartSchema');
 const bcrypt = require("bcrypt") ;
 const Product = require('../model/productsSchema.js');
+const Category = require('../model/categorySchema.js');
 const { raw } = require('body-parser');
 
 
@@ -21,15 +22,24 @@ const controller = {
     generateShop: function (req,res){
 		
 		var item = Product.find();
-		console.log(User.count({username: 'admin'}));
-
-		console.log(req.session.username);  
+	
 		item.exec(function(err,data){
 			if(err) throw err;
 			res.render('shop', {products:data});
 		});
 		//res.render('shop');
 	},
+
+	generateFiltered: function(req,res) {
+		var item = Product.find({category: req.body.showCategory});
+		
+		console.log(req.body.showCategory); 
+
+		item.exec(function(err,data){
+			if(err) throw err;
+			res.render('shop', {products:data});
+		});
+	}, 
 
 	generateAboutUs: function (req,res){
 		res.render('AboutUs2',{
@@ -226,9 +236,7 @@ const controller = {
 		let productDescrip = req.body.description;
 		let productImg = req.body.productImage;
 		let productCat = req.body.productCategory;
-
-		
-		
+	
 		Product.create({
 			name: productName, 
 			category: productCat, 
