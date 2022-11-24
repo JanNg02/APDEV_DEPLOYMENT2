@@ -160,10 +160,12 @@ const addEnrty = {
             orderNumber: 1, 
             pname: ["Heartgard"],
             username: "kawaiiwa",
+            adress: "Caloocan City",
+            contact_no: "09124562398",
             date: date,
             price: 677.99,
-            items: 1,
-            payment: "Gcash",
+            items: [1],
+            
         }
         Order.create(newOrder, err => {
             if (err) { console.log(err); }
@@ -177,10 +179,12 @@ const addEnrty = {
             orderNumber: 2, 
             pname: ["Heartgard", "catMed"],
             username: "kawaiiwa",
+            adress: "Caloocan City",
+            contact_no: "09124562398",
             date: date,
             price: 811.98,
-            items: 2,
-            payment: "Gcash",
+            items: [1, 1]
+            
         }
         Order.create(newOrder, err => {
             if (err) { console.log(err); }
@@ -191,12 +195,15 @@ const addEnrty = {
         const dateNow = new Date();
         const date = dateNow.toDateString() + " " + dateNow.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         var newOrder = {
+            orderNumber: 3,
             pname: ["allergyease", "Nexgard"],
             username: "kawaiiwa",
+            adress: "Caloocan City",
+            contact_no: "09124562398",
             date: date,
             price: 972.99,
-            items: 2,
-            payment: "Gcash",
+            items: [1, 1]
+            
         }
         Order.create(newOrder, err => {
             if (err) { console.log(err); }
@@ -207,12 +214,15 @@ const addEnrty = {
         const dateNow = new Date();
         const date = dateNow.toDateString() + " " + dateNow.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         var newOrder = {
+            orderNumber: 4,
             pname: ["Simparica"],
             username: "kawaiiwa",
+            adress: "Caloocan City",
+            contact_no: "09124562398",
             date: date,
             price: 484.23,
-            items: 3,
-            payment: "Gcash",
+            items: [3]
+            
         }
         Order.create(newOrder, err => {
             if (err) { console.log(err); }
@@ -223,12 +233,16 @@ const addEnrty = {
         const dateNow = new Date();
         const date = dateNow.toDateString() + " " + dateNow.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         var newOrder = {
+            orderNumber: 5,
             pname: ["Heartgard"],
             username: "kawaiiwa",
+            adress: "Caloocan City",
+            contact_no: "09124562398",
             date: date,
             price: 677.99,
-            items: 1,
-            payment: "Gcash",
+            items: [1],
+            
+            
         }
         Order.create(newOrder, err => {
             if (err) { console.log(err); }

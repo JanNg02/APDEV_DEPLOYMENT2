@@ -8,8 +8,10 @@
   height: 100px;
   width: 100%;
   bottom: 0;
+  top:0;
   left: 0;
   right: 0; 
+  position: relative;
     /*
   padding: 20px 0px;
   text-align: center;

@@ -8,8 +8,7 @@ const orderSchema = new mongoose.Schema( {
     contact_no: Number,
     date: String,
     price: Number,
-    items: Number,
-    payment: String,
+    items:[Number],
 });
 //name of the schema, orderSchema (the var)
 module.exports = mongoose.model('order', orderSchema);

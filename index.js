@@ -61,9 +61,7 @@ addEntry.newOrder2();
 addEntry.newOrder3(); 
 addEntry.newOrder4();
 addEntry.newOrder5(); 
-*/
 
-/*
 addEntry.newCategory1();
 addEntry.newCategory2();
 addEntry.newCategory3();  

@@ -341,33 +341,120 @@ const controller = {
 		//res.render('adminEdit'); 
 	}, 
 
-	addCart: function(req, res){
+	addCart: async function(req, res){
 		//console.log(req.body.itemId);
+		
 		const user = req.session.username;
 		const productName = req.body.productName;
 		const productPrice = req.body.productPrice;
-		const items = req.body.items;
+		const items = Number(req.body.items);
 		const total = productPrice * items;
 		console.log(total);
+		const collection = await Cart.findOne({username: user, productName: productName})
 		
-		const cart = new Cart({
-			username:user,
-			productName: productName, 	
-			items:items,		 
-			price: productPrice, 
+		if(collection == null){
+			const cart = new Cart({
+				username:user,
+				productName: productName, 	
+				items:items,		 
+				price: total, 
+	
+			})
+			cart.save(function(err) {
+				if (err){
+					console.log(err);
+					res.redirect("/item");
+				} else{
+					console.log("Loading..");
+					res.redirect("/shop");
+				}
+			});
+		} else{
+			const olditems = collection.items
+			const newitems = olditems + items;
+			const newPrice = (newitems * productPrice).toFixed(2);
 
-		})
-		cart.save(function(err) {
-            if (err){
-                console.log(err);
-				res.redirect("/item");
-            } else{
-				console.log("Loading..");
-                res.redirect("/shop");
-            }
-        });
+			console.log(newPrice);
+			Cart.updateOne({productName: productName},{$set: {items:newitems, price:newPrice}}, 
+
+			function(err, result){
+				if(result){
+					console.log("Updated Successfully"); 
+					res.redirect('/shop')
+				} else if (err) {
+					console.log("Updated Failed"); 
+					res.redirect('/shop')
+				}
+			}
+			);
+		
+		}
+	},
+		viewCart: function (req,res){
+			var user = req.session.username; 
+		var item = Cart.find({username:user});
+
+		//console.log(User.count({username: 'admin'}));
+
+		console.log(user);  
+		item.exec(function(err,data){
+			if(err) throw err;
+			res.render('viewCart', {carts:data});
+		});
 		},
 
+		deleteItem: function(req, res){
+			const userId = req.params.cartId;
+			Cart.findByIdAndRemove(userId, function(err){
+				if (err){
+					console.log(err);
+				} else{
+					res.redirect('/viewCart');
+				}
+			});
+		},
+		
+		checkout: async function(req,res){
+			const user = req.session.username;
+			const peeps = await User.find({username: user})
+			const cart = await Cart.find({username: user})
+			const orders = await Order.find({username: user})
+			var products = [];
+			var items = [];
+			var number = Number(orders.length + 1);
+			const dateNow = new Date();
+        	const date = dateNow.toDateString() + " " + dateNow.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+			//console.log(cart)
+			for(i=0;i<cart.length;i++){
+				products.push(cart[i].productName);
+				items.push(cart[i].items);
+			}
+
+			console.log(typeof products)
+			
+			const carts = new Order({
+				orderNumber: number,
+				pname: products,
+				username : user,
+				address : peeps.address,
+				contact_no: peeps.contact_no,
+				date: date,
+				price: req.body.totalPrice,
+				items: items,
+			})
+			await Cart.deleteMany({username:user})
+			carts.save(function(err) {
+				if (err){
+					console.log(err);
+					res.redirect("/checkout");
+				} else{
+						
+					console.log("Loading..");
+					res.redirect("/shop");
+				}
+			});
+				
+		   },
 }
 
 module.exports = controller;
