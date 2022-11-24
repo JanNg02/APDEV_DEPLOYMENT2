@@ -21,6 +21,7 @@ const controller = {
     generateShop: function (req,res){
 		
 		var item = Product.find();
+		console.log(User.count({username: 'admin'}));
 
 		console.log(req.session.username);  
 		item.exec(function(err,data){
@@ -60,19 +61,21 @@ const controller = {
 	generateOrderHistory: function(req,res) {
 		
 		var user = req.session.username;
-		var orders = Order.find();
+		var orders = Order.find({username: user});
+ 
 
 		orders.sort({orderNumber: 1}).exec(function(err,data){
 			if(err) throw err;
 			res.render('orderHistory', {orders:data});
 		});
-		
+		//console.log(orders.count()); 
 		//res.render('orderHistory'); 
 	}, 
 
 	generateOrder: async function (req,res){
 
 		var itemsOrdered = []; 
+		var user = req.session.username;
 
 		 let date; 
 		 let total
