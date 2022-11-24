@@ -19,26 +19,28 @@ const controller = {
 		});
 	},
 
-    generateShop: function (req,res){
+    generateShop: async function (req,res){
 		
-		var item = Product.find();
-	
-		item.exec(function(err,data){
+		var products = await Product.find({});
+		var category = await Category.find({}); 
+		//console.log(category); 
+		/*item.exec(function(err,data){
 			if(err) throw err;
-			res.render('shop', {products:data});
-		});
-		//res.render('shop');
+			res.render('shop', {products:data,category});
+		});*/
+		res.render('shop', {products, category});
 	},
 
-	generateFiltered: function(req,res) {
-		var item = Product.find({category: req.body.showCategory});
-		
-		console.log(req.body.showCategory); 
+	generateFiltered: async function(req,res) {
+		var products = await Product.find({category: req.body.showCategory});
+		var category = await Category.find({});
+		//console.log(req.body.showCategory); 
 
-		item.exec(function(err,data){
+		/*item.exec(function(err,data){
 			if(err) throw err;
 			res.render('shop', {products:data});
-		});
+		});*/
+		res.render('shop', {products, category});
 	}, 
 
 	generateAboutUs: function (req,res){

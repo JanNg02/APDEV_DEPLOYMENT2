@@ -1,6 +1,7 @@
 const User = require('./usersSchema');
 const Product = require('./productsSchema');
 const Order = require('./orderSchema');
+const Category = require('./categorySchema');
 const bcrypt = require("bcrypt") ;
 
 const addEnrty = {
@@ -231,6 +232,33 @@ const addEnrty = {
         }
         Order.create(newOrder, err => {
             if (err) { console.log(err); }
+        });
+    },
+
+    newCategory1: function () {
+        var newCategory = {
+            name: "Medicine"
+        };
+        Category.create(newCategory, err => {
+            if (err) console.log(err);
+        });
+    },
+
+    newCategory2: function () {
+        var newCategory = {
+            name: "Ticks and Fleas"
+        };
+        Category.create(newCategory, err => {
+            if (err) console.log(err);
+        });
+    },
+
+    newCategory3: function () {
+        var newCategory = {
+            name: "Maintenance"
+        };
+        Category.create(newCategory, err => {
+            if (err) console.log(err);
         });
     },
 }
