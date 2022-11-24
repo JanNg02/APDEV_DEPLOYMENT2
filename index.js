@@ -62,7 +62,7 @@ addEntry.newOrder3();
 addEntry.newOrder4();
 addEntry.newOrder5(); 
 */
-//addEntry.newProduct1(); 
+//addEntry.newProduct5(); 
 port = 3000; 
 app.listen(port, function(){
     console.log("Server is running at port: " + port)
