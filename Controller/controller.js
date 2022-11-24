@@ -10,7 +10,7 @@ const controller = {
     startIndex: function(req,res){
 		//req.session.isAuth = true
 		//console.log(req.session);
-		console.log(req.session.id)
+		//console.log(req.session.id)
 		console.log(req.session.username);
 		res.render('index',{
 			title: 'Welcome to Chubbies!'
@@ -58,6 +58,7 @@ const controller = {
 
 	generateOrderHistory: function(req,res) {
 		
+		var user = req.session.username;
 		var orders = Order.find();
 
 		orders.sort({orderNumber: 1}).exec(function(err,data){
@@ -70,14 +71,44 @@ const controller = {
 
 	generateOrder: async function (req,res){
 
-		/*var order = Order.findOne({orderNumber: req.body.orderView});
-		//console.log(req.body.orderView);
-		order.exec(function(err,data){
-			if(err) throw err;
-			res.render('order', {order:data1});
-		});*/
-		
-		res.render('order');
+		var itemsOrdered = []; 
+
+		 let date; 
+		 let total
+		// Finding the order using orderNumber
+		Order.find({orderNumber: req.body.orderView })
+			.then(data => {
+				//console.log(data);
+				// Putting all course id's in itemsOrdered array
+				data.map((d, k) => {
+					for(i = 0; i < d.pname.length; i++){
+						itemsOrdered.push(d.pname[i]);
+					}
+					date = d.date; 
+					total = d.price; 
+				})
+				//console.log(date);
+				//console.log(total);
+				/*
+				console.log("Stored in Array");
+				for(i = 0; i < itemsOrdered.length; i++){
+					console.log(itemsOrdered[i]); 
+				}*/
+
+				//find all Products from the Array
+				Product.find({ name: { $in: itemsOrdered } })
+					.then(data => {
+						//console.log("Items Ordered")
+						//console.log(data);
+						res.render('order',{items: data, Date: date, Total: total});
+					})
+					.catch(error => {
+						console.log(error);
+					})
+			})
+			.catch(error => {
+				console.log(error);
+			})
 	},
 
     generateAdminView: function (req,res){
@@ -192,6 +223,8 @@ const controller = {
 		let productImg = req.body.productImage;
 		let productCat = req.body.productCategory;
 
+		
+		
 		Product.create({
 			name: productName, 
 			category: productCat, 

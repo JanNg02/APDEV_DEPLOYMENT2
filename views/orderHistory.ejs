@@ -27,7 +27,7 @@
             <% x+=1;%>
           <tr>
             <th scope="row"><%=x%></th>
-            <td><%=order.date%></td>
+            <td name><%=order.date%></td>
             <td>$<%=order.price%></td>
             <td>      
                 <form action="/order" method="post"> 
