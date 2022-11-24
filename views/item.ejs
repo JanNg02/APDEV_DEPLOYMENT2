@@ -31,8 +31,13 @@
                       <%=Item.description%>
                     </p>
                       <h2 class="card-text" name = "price">$<%=Item.price%></h2>
-                    <a href ="Cart.html">
+                      <form method="post" action="/cart">
+                        <input type="hidden" value="<%=Item.id%>" name="itemId">
+                        <input type="hidden" value="<%=Item.name%>" name="productName">
+                        <input type="hidden" value="<%=Item.price%>" name="productPrice">
+                        <input  type="number" name="items">
                       <button class ="btn btn-4 btn-sep icon-send button"> Add to Cart </button>
+                      </form>
                     </a> 
                   </div>
                 </div>

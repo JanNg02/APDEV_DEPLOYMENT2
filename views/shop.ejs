@@ -37,8 +37,13 @@
                         <p class="card-text"> $<%=product.price%> </p>
                         <!--<Button onclick="Toggle()" id="favorites" class="btn"><i class="fa fa-heart fa-2x"></i></Button>-->  
                           <div class = "buttonDiv"> 
-                            <form action="/Cart.html" method="post">
-                              <button class ="btn btn-4 btn-sep icon-send button btn1" type = "submit"> <img src="images/cart.png" height ="30" width="30"/> </button>
+                            <form method="post" action="/cart">
+                              <input type="hidden" value="<%=product.id%>" name="itemId">
+                              <input type="hidden" value="<%=product.name%>" name="productName">
+                              <input type="hidden" value="<%=product.price%>" name="productPrice">
+                              <input  type="number" name="items" >
+                              <button  class ="btn btn-4 btn-sep icon-send button btn1" > <img src="images/cart.png" height ="30" width="30"/> </button>
+                              
                             </form>
                             <form action="/item" method="post">
                               <button class ="btn btn-4 btn-sep icon-send button btn2" type = "submit"> <img src="images/more.png" height ="30" width="30"/> </button>

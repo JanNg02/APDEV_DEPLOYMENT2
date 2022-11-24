@@ -47,5 +47,6 @@ app.post('/edit', controller.editItem);
 
 //Item
 app.post('/item', controller.generateItemPage); 
-
+app.post('/cart', controller.addCart)
+//app.get('/cart', controller.getCart)
 module.exports = app; 

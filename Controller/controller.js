@@ -1,5 +1,6 @@
 const User = require('../model/usersSchema');
 const Order = require('../model/orderSchema');
+const Cart = require('../model/cartSchema');
 const bcrypt = require("bcrypt") ;
 const Product = require('../model/productsSchema.js');
 const { raw } = require('body-parser');
@@ -326,6 +327,33 @@ const controller = {
 		);
 		//res.render('adminEdit'); 
 	}, 
+
+	addCart: function(req, res){
+		//console.log(req.body.itemId);
+		const user = req.session.username;
+		const productName = req.body.productName;
+		const productPrice = req.body.productPrice;
+		const items = req.body.items;
+		const total = productPrice * items;
+		console.log(total);
+		
+		const cart = new Cart({
+			username:user,
+			productName: productName, 	
+			items:items,		 
+			price: productPrice, 
+
+		})
+		cart.save(function(err) {
+            if (err){
+                console.log(err);
+				res.redirect("/item");
+            } else{
+				console.log("Loading..");
+                res.redirect("/shop");
+            }
+        });
+		},
 
 }
 
