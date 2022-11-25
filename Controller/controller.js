@@ -479,7 +479,7 @@ const controller = {
 						//console.log(prod[j].name)
 						const newStock = Number(prod[j].stock - cart[i].items)
 						console.log(newStock)
-						Product.findOneAndUpdate({name: cart[i].productName},{$set: {stock: newStock}})
+						await Product.updateOne({name: cart[i].productName},{$set: {stock: newStock}})
 					}
 				}
 				
