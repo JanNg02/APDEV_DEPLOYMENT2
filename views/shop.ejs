@@ -25,13 +25,13 @@
 
         <!--Filter-->
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Categories
             </button>
               <ul class="dropdown-menu">
                 <%category.forEach(category =>{%>
                 <form action ="/filter" method = "post">
-                  <li><button type = "submit"><%=category.name%></button></li>
+                  <li><button type = "submit" class = "filterButtons"><%=category.name%></button></li>
                   <input type = "hidden" name = "showCategory" value = "<%=category.name%>">
                 </form>
                 <%})%>
@@ -58,7 +58,6 @@
                               <input type="hidden" value="<%=product.price%>" name="productPrice">
                               <input  type="number" name="items" >
                               <button  class ="btn btn-4 btn-sep icon-send button btn1" > <img src="images/cart.png" height ="30" width="30"/> </button>
-                              
                             </form>
                             <form action="/item" method="post">
                               <button class ="btn btn-4 btn-sep icon-send button btn2" type = "submit"> <img src="images/more.png" height ="30" width="30"/> </button>

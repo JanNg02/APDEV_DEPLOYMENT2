@@ -18,6 +18,16 @@
   border-radius: 20px;
 }
 
+.filterButtons{
+  width: 100%; 
+	background-color: transparent;
+  border: none;
+}
+
+.filterButtons:hover {
+	background-color:rgba(14, 110, 188, 0.863);
+	color: white;
+  }
 
 /*Products*/
 td { 
