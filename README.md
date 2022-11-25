@@ -46,7 +46,7 @@ Running the code for the first time will populate the database so to avoid dupli
 + mongoose
 + nodemon
 - router
->(npm i ejs express mongodb mongoose nodemon router)
+>(npm i ejs express mongodb mongoose nodemon router connect-mongodb-session)
 
 ### For Login
 + body-parser
