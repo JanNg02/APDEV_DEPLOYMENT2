@@ -463,16 +463,26 @@ const controller = {
 			const user = req.session.username;
 			const peeps = await User.find({username: user})
 			const cart = await Cart.find({username: user})
+			const prod =  await Product.find({})
 			const orders = await Order.find({username: user})
 			var products = [];
 			var items = [];
 			var number = Number(orders.length + 1);
 			const dateNow = new Date();
         	const date = dateNow.toDateString() + " " + dateNow.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-			//console.log(cart)
+			console.log(prod.length)
 			for(i=0;i<cart.length;i++){
 				products.push(cart[i].productName);
 				items.push(cart[i].items);
+				for(j=0;j<prod.length;j++){
+					if(prod[j].name == cart[i].productName){
+						//console.log(prod[j].name)
+						const newStock = Number(prod[j].stock - cart[i].items)
+						console.log(newStock)
+						Product.findOneAndUpdate({name: cart[i].productName},{$set: {stock: newStock}})
+					}
+				}
+				
 			}
 
 			console.log(typeof products)

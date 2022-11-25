@@ -70,7 +70,7 @@
                           <input type="hidden" value="<%=product.name%>" name="productName">
                           <input type="hidden" value="<%=product.price%>" name="productPrice">
                           <button  class ="btn btn-4 btn-sep icon-send button btn1 cart" > <img src="images/cart.png" height ="30" width="30"/> </button>
-                          <input  class = "itemCount" type="number" name="items">
+                          <input  class = "itemCount" type="number" name="items" min ="1" max="<%=product.stock%>">
                         </form>
 
                         <!--Item Page-->

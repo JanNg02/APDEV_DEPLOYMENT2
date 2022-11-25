@@ -35,7 +35,7 @@
                         <input type="hidden" value="<%=Item.id%>" name="itemId">
                         <input type="hidden" value="<%=Item.name%>" name="productName">
                         <input type="hidden" value="<%=Item.price%>" name="productPrice">
-                        <input  type="number" name="items">
+                        <input  type="number" name="items" min="1" max ="<%=Item.stock%>">
                       <button class ="btn btn-4 btn-sep icon-send button"> Add to Cart </button>
                       </form>
                     </a> 
