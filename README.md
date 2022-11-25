@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-# APDEVMP
-=======
 # Chubbies
 
 ## Authors
