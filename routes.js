@@ -17,10 +17,10 @@ app.get('/', controller.startIndex);
 
 app.get('/shop', isAuth, controller.generateShop);
 app.get('/AboutUs2', controller.generateAboutUs);
-app.get('/adminView', controller.generateAdminView);
+app.get('/adminView', isAuth, controller.generateAdminView);
 
 //Filter
-app.post('/filter', controller.generateFiltered); 
+app.post('/filter', isAuth,controller.generateFiltered); 
 
 //Login
 app.post('/save', controller.saveUser);
@@ -29,31 +29,31 @@ app.post('/login', controller.loginUser);
 app.get('/logout',controller.logoutUser); 
 
 //Profile
-app.get('/profile', controller.generateProfile);
-app.get('/orderHistory', controller.generateOrderHistory);
-app.post('/order', controller.generateOrder);
-app.get('/settings', controller.generateSettings);
-app.post('/editUser', controller.editUser);  
+app.get('/profile', isAuth,controller.generateProfile);
+app.get('/orderHistory', isAuth,controller.generateOrderHistory);
+app.post('/order', isAuth,controller.generateOrder);
+app.get('/settings',isAuth, controller.generateSettings);
+app.post('/editUser', isAuth,controller.editUser);  
 
 //Admin View
 //Admin Add
-app.get('/adminAdd', controller.generateAdminAdd); 
-app.post('/add', controller.addItems);
-app.post('/itemAdmin', controller.generateAdminItem);   
+app.get('/adminAdd', isAuth,controller.generateAdminAdd); 
+app.post('/add',isAuth, controller.addItems);
+app.post('/itemAdmin', isAuth,controller.generateAdminItem);   
 
 // Admin Remove
-app.get('/adminRemove', controller.generateRemoveAdmin);
-app.post('/del', controller.deleteItems);
+app.get('/adminRemove', isAuth,controller.generateRemoveAdmin);
+app.post('/del', isAuth,controller.deleteItems);
 
 //Admin Edit
-app.get('/adminEdit', controller.generateAdminEdit);
-app.post('/itemEdit', controller.generateItemEdit);
-app.post('/edit', controller.editItem); 
+app.get('/adminEdit', isAuth,controller.generateAdminEdit);
+app.post('/itemEdit', isAuth,controller.generateItemEdit);
+app.post('/edit', isAuth,controller.editItem); 
 
 //Item
-app.post('/item', controller.generateItemPage); 
-app.post('/cart', controller.addCart)
-app.get('/viewCart', controller.viewCart)
-app.get('/delete/:cartId', controller.deleteItem)
-app.post('/checkout', controller.checkout)
+app.post('/item',isAuth, controller.generateItemPage); 
+app.post('/cart', isAuth,controller.addCart)
+app.get('/viewCart', isAuth,controller.viewCart)
+app.get('/delete/:cartId', isAuth,controller.deleteItem)
+app.post('/checkout', isAuth,controller.checkout)
 module.exports = app; 
