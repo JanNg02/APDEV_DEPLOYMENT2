@@ -56,4 +56,5 @@ app.post('/cart', isAuth,controller.addCart)
 app.get('/viewCart', isAuth,controller.viewCart)
 app.get('/delete/:cartId', isAuth,controller.deleteItem)
 app.post('/checkout', isAuth,controller.checkout)
+
 module.exports = app; 
