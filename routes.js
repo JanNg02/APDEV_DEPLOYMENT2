@@ -53,7 +53,7 @@ app.post('/changePfp', upload.single('userImage'), controller.updateUserPic);
 //Admin View
 //Admin Add
 app.get('/adminAdd', isAuth,controller.generateAdminAdd); 
-app.post('/add',isAuth, controller.addItems);
+app.post('/add',upload.single('productImage'), controller.addItems);
 app.post('/itemAdmin', isAuth,controller.generateAdminItem);   
 
 // Admin Remove

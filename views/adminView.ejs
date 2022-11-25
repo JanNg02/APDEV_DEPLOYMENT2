@@ -19,7 +19,7 @@
           <div class = "child" id = "left">
             <div class = "headers align-middle">
             <h1> Admin View </h1>
-              <img src =  "images/image.jpg" class="rounded-circle border border-dark border-2 profilepic" alt="100x100">
+              <img src =  "uploads/<%=img.pic%>" class="rounded-circle border border-dark border-2 profilepic" alt="100x100">
               </br> <h2> <%=User%> </h2> 
           </div> 
           
@@ -35,6 +35,9 @@
                 </br>
                 <button class ="btn btn-5 btn-sep icon-info" onclick="document.getElementById('iframe').src = 
                 '/settings'">Account Settings</button>
+                </br>
+                <button class ="btn btn-5 btn-sep icon-info" onclick="document.getElementById('iframe').src = 
+                '/pfpUser'">Update Profile Pic</button>
                 </br>
                 <form method = "get" action = "/logout">
                   <button class ="btn btn-4 btn-sep icon-send" type = "submit"> Logout </button>

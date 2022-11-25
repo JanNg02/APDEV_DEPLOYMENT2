@@ -82,6 +82,20 @@ const addEnrty = {
             if (err) console.log(err);
         });
     },
+    newUser6: async function () {
+        const hashedPassword = await bcrypt.hash("password9", 10);
+        var newUser = {
+            name: "Antonio Banderas",
+            address: "Cebu City",
+            username: "admin",
+            password: hashedPassword,
+            contact_no: "09195365158",
+            pic: "generic.png"
+        };
+        User.create(newUser, err => {
+            if (err) console.log(err);
+        });
+    },
 
     newProduct1: function () {
         var newProduct = {
@@ -201,7 +215,7 @@ const addEnrty = {
         const date = dateNow.toDateString() + " " + dateNow.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         var newOrder = {
             orderNumber: 3,
-            pname: ["Allergyease", "Nexgard"],
+            pname: ["Alleryease", "Nexgard"],
             username: "greenarw",
             adress: "Caloocan City",
             contact_no: "09124562398",
@@ -336,7 +350,7 @@ const addEnrty = {
     newCart4: function () {
         var newCart = {
             username: "greenarw", 
-            productName: "Allergyease", 
+            productName: "Alleryease", 
             items: 1,
             price: 900
         };
@@ -349,7 +363,7 @@ const addEnrty = {
         var newCart = {
             username: "greenarw", 
             productName: "Nexgard", 
-            items: 2,
+            items: 1,
             price: 72.99
         };
         Cart.create(newCart, err => {
@@ -362,7 +376,7 @@ const addEnrty = {
         var newCart = {
             username: "jayzone", 
             productName: "Simparica", 
-            items: 3,
+            items: 1,
             price: 161.41
         };
         Cart.create(newCart, err => {

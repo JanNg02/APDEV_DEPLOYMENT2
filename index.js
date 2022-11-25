@@ -43,12 +43,13 @@ app.use(session({
     store: store,
 }))
 
-/*This is the part to comment out after running once 
+/*This is the part to comment out after running once
 addEntry.newUser1(); 
 addEntry.newUser2();
 addEntry.newUser3(); 
 addEntry.newUser4();
 addEntry.newUser5(); 
+addEntry.newUser6();
 
 addEntry.newProduct1(); 
 addEntry.newProduct2();
@@ -67,15 +68,8 @@ addEntry.newCategory2();
 addEntry.newCategory3();
 addEntry.newCategory4();
 addEntry.newCategory5();
+ */  
 
-addEntry.newCart1();
-addEntry.newCart2();
-addEntry.newCart3();
-addEntry.newCart4();
-addEntry.newCart5();
-addEntry.newCart6();
-addEntry.newCart7();
-*/  
 port = 3000; 
 app.listen(port, function(){
     console.log("Server is running at port: " + port)

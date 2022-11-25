@@ -10,9 +10,6 @@ const { raw } = require('body-parser');
 
 const controller = {
     startIndex: function(req,res){
-		//req.session.isAuth = true
-		//console.log(req.session);
-		//console.log(req.session.id)
 		console.log(req.session.username);
 		res.render('index',{
 			title: 'Welcome to Chubbies!'
@@ -44,7 +41,6 @@ const controller = {
     generateProfile: async function (req,res){
 
 		var user = req.session.username; 
-		console.log(req.session.username);
 		
 		var img = await User.findOne({username: user});
 		
@@ -55,15 +51,12 @@ const controller = {
 		
 		var user = req.session.username; 
 
-		console.log(user); 
 		var dbUser = User.findOne({username: user}); 
 		
 		dbUser.exec(function(err,data){
 			if(err) throw err;
 			res.render('settings', {userEdit:data});
 		});
-
-		//res.render('settings'); 
 	}, 
 
 	generateOrderHistory: function(req,res) {
@@ -76,8 +69,6 @@ const controller = {
 			if(err) throw err;
 			res.render('orderHistory', {orders:data});
 		});
-		//console.log(orders.count()); 
-		//res.render('orderHistory'); 
 	}, 
 
 	generateOrder: async function (req,res){
@@ -91,7 +82,7 @@ const controller = {
 		// Finding the order using orderNumber
 		Order.find({orderNumber: req.body.orderView, username: user})
 			.then(data => {
-				//console.log(data);
+
 				// Putting all course id's in itemsOrdered array
 				data.map((d, k) => {
 					for(i = 0; i < d.pname.length; i++){
@@ -101,8 +92,6 @@ const controller = {
 					date = d.date; 
 					total = d.price; 
 				})
-				//console.log(date);
-				//console.log(total);
 
 				//find all Products from the Array
 				Product.find({ name: { $in: itemsOrdered } })
@@ -118,10 +107,11 @@ const controller = {
 			})
 	},
 
-    generateAdminView: function (req,res){
+    generateAdminView: async function (req,res){
 		
 		var user = req.session.username; 
-		res.render('adminView', {User: user});
+		var img = await User.findOne({username: user});
+		res.render('adminView', {User: user,img});
 	},
 
 	generateAdminAdd: function (req,res){
@@ -136,24 +126,21 @@ const controller = {
 		
 		var item = Product.find();
 
-		//console.log(item); 
 		item.exec(function(err,data){
 			if(err) throw err;
 			res.render('adminEdit', {products:data});
 		});
-		//res.render('adminEdit'); 
 	}, 
 
 	generateRemoveAdmin: function (req,res){
 		
 		var item = Product.find();
 
-		//console.log(item); 
 		item.exec(function(err,data){
 			if(err) throw err;
 			res.render('adminRemove', {products:data});
 		});
-		//res.render('adminRemove'); 
+
 	}, 
 
 	generateRegis: function(req, res) {
@@ -165,7 +152,6 @@ const controller = {
 	generateItemPage: async function (req,res){
 		var product = req.body.showProduct; 
 
-		//console.log(product); 
 		var item = Product.findOne({name: product}); 
 		 
 		item.exec(function(err,data){
@@ -177,7 +163,6 @@ const controller = {
 	generateAdminItem: async function (req,res){
 		var product = req.body.showProduct; 
 
-		//console.log(product); 
 		var item = Product.findOne({name: product}); 
 		 
 		item.exec(function(err,data){
@@ -210,7 +195,7 @@ const controller = {
                 console.log(err);
 				res.redirect("/register");
             } else{
-				//console.log("Loading..");
+				console.log("Loading..");
                 res.redirect("/");
             }
         });
@@ -255,19 +240,15 @@ const controller = {
 		let productPrice = req.body.price;
 		let productStock = req.body.stock;
 		let productDescrip = req.body.description;
-		let productImg = req.body.productImage;
 		let productCat = req.body.productCategory;
+		let productImg = req.file.filename; 
 		
 		let category = await Category.findOne({name: productCat});
 		if(category == null){
 			Category.create({
 				name:  productCat
 			},
-			   function(err, result){
-				   if(result){
-						console.log("Added Category Succesfully"); 
-				   }
-			   }
+			   
 			); 
 		}
 		
@@ -304,14 +285,12 @@ const controller = {
 		
 		var product = req.body.showProduct; 
 
-		//console.log(product); 
 		var item = Product.findOne({name: product}); 
 		
 		item.exec(function(err,data){
 			if(err) throw err;
 			res.render('itemEdit', {Item:data});
 		});
-		//res.render('itemEdit'); 
 	}, 
 
 	editItem: async function (req,res){
@@ -361,7 +340,6 @@ const controller = {
 			function(err, result){
 				if(result){
 					console.log("Updated Users Successfully"); 
-					console.log(address);
 					res.redirect('/settings')
 				} else if (err) {
 					console.log("Update Failed"); 
@@ -382,8 +360,6 @@ const controller = {
                 console.log(err);
             }
             else {
-                // console.log(updatePic);
-                // console.log(req.user.username);
                 console.log("Successfully updated Pic");
             }
         })
@@ -391,7 +367,6 @@ const controller = {
     },
 
 	addCart: async function(req, res){
-			//console.log(req.body.itemId);
 			
 			const user = req.session.username;
 			const productName = req.body.productName;
@@ -442,8 +417,6 @@ const controller = {
 		viewCart: function (req,res){
 			var user = req.session.username; 
 			var item = Cart.find({username:user});
-
-		//console.log(User.count({username: 'admin'}));
 
 		console.log(user);  
 		item.exec(function(err,data){
