@@ -73,5 +73,3 @@ Running the code for the first time will populate the database so to avoid dupli
 6. Username: admin
     - Password: password9
 
-
->>>>>>> Stashed changes
