@@ -118,7 +118,7 @@ const addEnrty = {
             name: "Revolution Plus",
             category:"Ticks and Flease",
             price: 133.99,
-            stock: 10,
+            stock: 0,
             description: "Help protect your four-legged friend from pesky critters with this 6-in-1 broad spectrum monthly Topical Solution for Cats by Revolution Plus. Simply apply the quick-drying, small-volume prescription to help: kill fleas before they lay eggs, kill ticks for a full month, prevent heartworm disease and treat and control roundworms, hookworms and ear mites. This topical medication is suitable for cats and kittens eight weeks of age or older, weighing between 11.1 and 22 pounds.",
             pic: "catMed.png"
         };

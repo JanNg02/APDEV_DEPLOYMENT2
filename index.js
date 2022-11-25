@@ -43,7 +43,7 @@ app.use(session({
     store: store,
 }))
 
-/*This is the part to comment out after running once
+/*This is the part to comment out after running once */  
 addEntry.newUser1(); 
 addEntry.newUser2();
 addEntry.newUser3(); 
@@ -68,7 +68,7 @@ addEntry.newCategory2();
 addEntry.newCategory3();
 addEntry.newCategory4();
 addEntry.newCategory5();
- */  
+
 
 port = 3000; 
 app.listen(port, function(){
