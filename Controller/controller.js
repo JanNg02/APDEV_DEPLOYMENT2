@@ -331,10 +331,10 @@ const controller = {
 			function(err, result){
 				if(result){
 					console.log("Updated Successfully"); 
-					res.redirect('/itemEdit')
+					res.redirect('/adminEdit')
 				} else if (err) {
 					console.log("Updated Failed"); 
-					res.redirect('/itemEdit')
+					res.redirect('/adminEdit')
 				}
 			}
 		);
