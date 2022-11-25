@@ -121,6 +121,10 @@ const controller = {
 
 	generateAdminAdd: function (req,res){
 		res.render('adminAdd'); 
+	},
+
+	generateChangeImageUser: function (req,res){
+		res.render('pfpUser'); 
 	}, 
 
 	generateAdminEdit: function (req,res){
@@ -361,6 +365,26 @@ const controller = {
 		);
 		//res.render('adminEdit'); 
 	}, 
+
+	updateUserPic: function(req,res){
+        var updatePic = req.file.userImage; 
+		var user = req.session.username;
+
+		//console.log(updatePic)
+        User.updateOne({username: user}, {$set:{pic: updatePic}}, 
+			
+			function (err, result) {
+				if (err) {
+					console.log(err);
+				}
+				else {
+					 console.log(updatePic);
+					 console.log(user);
+					console.log("Successfully updated Pic");
+				}
+        	})
+        res.redirect('/settings');
+    },
 
 	addCart: async function(req, res){
 			//console.log(req.body.itemId);

@@ -1,5 +1,6 @@
 const express = require('express');
 const { model } = require("mongoose");
+const multer = require('multer'); 
 
 const controller = require('./Controller/controller.js');
 
@@ -12,6 +13,18 @@ const isAuth = (req, res, next)=>{
         res.redirect('/')
     }
 }
+
+const storage = multer.diskStorage({
+    destination: (req,file,cb)=>{
+        cb(null,'uploads')
+    },
+    filename: (req,file,cb)=>{
+        cb(null,file.originalname)
+    }
+})
+
+const upload = multer({storage:storage});      
+  
 
 app.get('/', controller.startIndex);
 
@@ -33,7 +46,9 @@ app.get('/profile', isAuth,controller.generateProfile);
 app.get('/orderHistory', isAuth,controller.generateOrderHistory);
 app.post('/order', isAuth,controller.generateOrder);
 app.get('/settings',isAuth, controller.generateSettings);
-app.post('/editUser', isAuth,controller.editUser);  
+app.post('/editUser', isAuth,controller.editUser);
+app.get('/pfpUser', isAuth, controller.generateChangeImageUser); 
+app.post('/changePfp', upload.single('userImage'), controller.updateUserPic);   
 
 //Admin View
 //Admin Add

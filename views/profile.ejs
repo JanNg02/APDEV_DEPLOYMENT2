@@ -19,7 +19,7 @@
           <div class = "child" id = "left">
             <div class = "headers align-middle">
             <h1> User Profile </h1>
-            <img src =  "images/image.jpg" class="rounded-circle border border-dark border-2 profilepic" alt="100x100">
+            <img src =  "uploads/generic.png" class="rounded-circle border border-dark border-2 profilepic" alt="100x100">
             </br> <h2> Name: <%=username%> </h2> 
         </div> 
           
@@ -27,9 +27,15 @@
                 <button class ="btn btn-2 btn-sep icon-cart"onclick="document.getElementById('iframe').src = 
                 '/orderHistory'">Order History</button>
                 </br>
+                
                 <button class ="btn btn-5 btn-sep icon-info" onclick="document.getElementById('iframe').src = 
                 '/settings'">Account Settings</button>
                 </br>
+                
+                <button class ="btn btn-5 btn-sep icon-info" onclick="document.getElementById('iframe').src = 
+                '/pfpUser'">Update Profile Picture</button>
+                </br>
+                
                 <form method = "get" action = "/logout">
                   <button class ="btn btn-4 btn-sep icon-send" type = "submit"> Logout </button>
                 </form>
