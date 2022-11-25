@@ -2,6 +2,7 @@ const User = require('./usersSchema');
 const Product = require('./productsSchema');
 const Order = require('./orderSchema');
 const Category = require('./categorySchema');
+const Cart = require('./cartSchema');
 const bcrypt = require("bcrypt") ;
 
 const addEnrty = {
@@ -13,8 +14,8 @@ const addEnrty = {
             address: "Caloocan City",
             username: "kawaiiwa",
             password: hashedPassword,
-            contact_no: "09124562398"
-          
+            contact_no: "09124562398",
+            pic: "generic.png"
         };
         User.create(newUser, err => {
             if (err) console.log(err);
@@ -29,7 +30,8 @@ const addEnrty = {
             address: "Pasay City",
             username: "greenarw",
             password: hashedPassword,
-            contact_no: "09569841576"
+            contact_no: "09569841576", 
+            pic: "generic.png"
         };
         User.create(newUser, err => {
             if (err) console.log(err);
@@ -43,7 +45,8 @@ const addEnrty = {
             address: "Taguig City",
             username: "nath01",
             password: hashedPassword,
-            contact_no: "09152346310"
+            contact_no: "09152346310", 
+            pic: "generic.png"
         };
         User.create(newUser, err => {
             if (err) console.log(err);
@@ -57,7 +60,8 @@ const addEnrty = {
             address: "Laguna City",
             username: "jayzone",
             password: hashedPassword,
-            contact_no: "09204897521"
+            contact_no: "09204897521", 
+            pic: "generic.png"
         };
         User.create(newUser, err => {
             if (err) console.log(err);
@@ -71,7 +75,8 @@ const addEnrty = {
             address: "Ilocos City",
             username: "cutiee314",
             password: hashedPassword,
-            contact_no: "09169532875"
+            contact_no: "09169532875", 
+            pic: "generic.png"
         };
         User.create(newUser, err => {
             if (err) console.log(err);
@@ -97,7 +102,7 @@ const addEnrty = {
         var newProduct = {
             productNumber: 2,
             name: "Revolution Plus",
-            category:"Medicine",
+            category:"Ticks and Flease",
             price: 133.99,
             stock: 10,
             description: "Help protect your four-legged friend from pesky critters with this 6-in-1 broad spectrum monthly Topical Solution for Cats by Revolution Plus. Simply apply the quick-drying, small-volume prescription to help: kill fleas before they lay eggs, kill ticks for a full month, prevent heartworm disease and treat and control roundworms, hookworms and ear mites. This topical medication is suitable for cats and kittens eight weeks of age or older, weighing between 11.1 and 22 pounds.",
@@ -159,11 +164,11 @@ const addEnrty = {
         var newOrder = {
             orderNumber: 1, 
             pname: ["Heartgard"],
-            username: "kawaiiwa",
+            username: "nath01",
             adress: "Caloocan City",
             contact_no: "09124562398",
             date: date,
-            price: 677.99,
+            price: 67.99,
             items: [1],
             
         }
@@ -177,12 +182,12 @@ const addEnrty = {
         const date = dateNow.toDateString() + " " + dateNow.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         var newOrder = {
             orderNumber: 2, 
-            pname: ["Heartgard", "catMed"],
+            pname: ["Heartgard", "Nexgard"],
             username: "kawaiiwa",
             adress: "Caloocan City",
             contact_no: "09124562398",
             date: date,
-            price: 811.98,
+            price: 140.98,
             items: [1, 1]
             
         }
@@ -196,13 +201,13 @@ const addEnrty = {
         const date = dateNow.toDateString() + " " + dateNow.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         var newOrder = {
             orderNumber: 3,
-            pname: ["allergyease", "Nexgard"],
-            username: "kawaiiwa",
+            pname: ["Allergyease", "Nexgard"],
+            username: "greenarw",
             adress: "Caloocan City",
             contact_no: "09124562398",
             date: date,
-            price: 972.99,
-            items: [1, 1]
+            price: 1045.68,
+            items: [1, 2]
             
         }
         Order.create(newOrder, err => {
@@ -216,7 +221,7 @@ const addEnrty = {
         var newOrder = {
             orderNumber: 4,
             pname: ["Simparica"],
-            username: "kawaiiwa",
+            username: "jayzone",
             adress: "Caloocan City",
             contact_no: "09124562398",
             date: date,
@@ -235,14 +240,12 @@ const addEnrty = {
         var newOrder = {
             orderNumber: 5,
             pname: ["Heartgard"],
-            username: "kawaiiwa",
+            username: "cutiee314",
             adress: "Caloocan City",
             contact_no: "09124562398",
             date: date,
-            price: 677.99,
+            price: 67.99,
             items: [1],
-            
-            
         }
         Order.create(newOrder, err => {
             if (err) { console.log(err); }
@@ -251,7 +254,7 @@ const addEnrty = {
 
     newCategory1: function () {
         var newCategory = {
-            name: "Medicine"
+            name: "Allergy"
         };
         Category.create(newCategory, err => {
             if (err) console.log(err);
@@ -275,5 +278,109 @@ const addEnrty = {
             if (err) console.log(err);
         });
     },
+
+    newCategory4: function () {
+        var newCategory = {
+            name: "Diabetis"
+        };
+        Category.create(newCategory, err => {
+            if (err) console.log(err);
+        });
+    },
+
+    newCategory5: function () {
+        var newCategory = {
+            name: "Food"
+        };
+        Category.create(newCategory, err => {
+            if (err) console.log(err);
+        });
+    },
+
+    newCart1: function () {
+        var newCart = {
+            username: "nath01", 
+            productName: "Heartgard", 
+            items: 1,
+            price: 67.99
+        };
+        Cart.create(newCart, err => {
+            if (err) console.log(err);
+        });
+    },
+
+    newCart2: function () {
+        var newCart = {
+            username: "kawaiiwa", 
+            productName: "Heartgard", 
+            items: 1,
+            price: 67.99
+        };
+        Cart.create(newCart, err => {
+            if (err) console.log(err);
+        });
+    },
+
+    newCart3: function () {
+        var newCart = {
+            username: "kawaiiwa", 
+            productName: "Nexgard", 
+            items: 1,
+            price: 72.99
+        };
+        Cart.create(newCart, err => {
+            if (err) console.log(err);
+        });
+    },
+
+    newCart4: function () {
+        var newCart = {
+            username: "greenarw", 
+            productName: "Allergyease", 
+            items: 1,
+            price: 900
+        };
+        Cart.create(newCart, err => {
+            if (err) console.log(err);
+        });
+    },
+
+    newCart5: function () {
+        var newCart = {
+            username: "greenarw", 
+            productName: "Nexgard", 
+            items: 2,
+            price: 72.99
+        };
+        Cart.create(newCart, err => {
+            if (err) console.log(err);
+        });
+    },
+
+
+    newCart6: function () {
+        var newCart = {
+            username: "jayzone", 
+            productName: "Simparica", 
+            items: 3,
+            price: 161.41
+        };
+        Cart.create(newCart, err => {
+            if (err) console.log(err);
+        });
+    },
+
+    newCart7: function () {
+        var newCart = {
+            username: "cutiee314", 
+            productName: "Heartgard", 
+            items: 1,
+            price: 67.99
+        };
+        Cart.create(newCart, err => {
+            if (err) console.log(err);
+        });
+    },
+
 }
 module.exports = addEnrty;

@@ -64,7 +64,17 @@ addEntry.newOrder5();
 
 addEntry.newCategory1();
 addEntry.newCategory2();
-addEntry.newCategory3();  
+addEntry.newCategory3();
+addEntry.newCategory4();
+addEntry.newCategory5();
+
+addEntry.newCart1();
+addEntry.newCart2();
+addEntry.newCart3();
+addEntry.newCart4();
+addEntry.newCart5();
+addEntry.newCart6();
+addEntry.newCart7();
 */  
 port = 3000; 
 app.listen(port, function(){
