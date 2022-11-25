@@ -41,9 +41,14 @@ const controller = {
 		});
 	},
 
-    generateProfile: function (req,res){
+    generateProfile: async function (req,res){
+
+		var user = req.session.username; 
 		console.log(req.session.username);
-		res.render('profile', {username: req.session.username});
+		
+		var img = await User.findOne({username: user});
+		
+		res.render('profile', {username: req.session.username,img});
 	},
 
 	generateSettings: function(req,res){
@@ -197,6 +202,7 @@ const controller = {
             username,
 			password:  hashedPassword,
             contact_no,
+			pic: "generic.png"
 
         });
 		user.save(function(err) {
@@ -366,23 +372,21 @@ const controller = {
 		//res.render('adminEdit'); 
 	}, 
 
-	updateUserPic: function(req,res){
-        var updatePic = req.file.userImage; 
+	updateUserPic: async function(req,res){
+        var updatePic = req.file.filename; 
 		var user = req.session.username;
 
-		//console.log(updatePic)
-        User.updateOne({username: user}, {$set:{pic: updatePic}}, 
-			
-			function (err, result) {
-				if (err) {
-					console.log(err);
-				}
-				else {
-					 console.log(updatePic);
-					 console.log(user);
-					console.log("Successfully updated Pic");
-				}
-        	})
+		console.log(updatePic)
+		User.updateOne({username: user}, {pic: updatePic}, function (err, result) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                // console.log(updatePic);
+                // console.log(req.user.username);
+                console.log("Successfully updated Pic");
+            }
+        })
         res.redirect('/settings');
     },
 
@@ -437,7 +441,7 @@ const controller = {
 		},
 		viewCart: function (req,res){
 			var user = req.session.username; 
-		var item = Cart.find({username:user});
+			var item = Cart.find({username:user});
 
 		//console.log(User.count({username: 'admin'}));
 
