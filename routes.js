@@ -25,7 +25,8 @@ app.post('/filter', controller.generateFiltered);
 //Login
 app.post('/save', controller.saveUser);
 app.get('/register', controller.generateRegis);
-app.post('/login', controller.loginUser)
+app.post('/login', controller.loginUser); 
+app.get('/logout',controller.logoutUser); 
 
 //Profile
 app.get('/profile', controller.generateProfile);
@@ -38,6 +39,7 @@ app.post('/editUser', controller.editUser);
 //Admin Add
 app.get('/adminAdd', controller.generateAdminAdd); 
 app.post('/add', controller.addItems);
+app.post('/itemAdmin', controller.generateAdminItem);   
 
 // Admin Remove
 app.get('/adminRemove', controller.generateRemoveAdmin);

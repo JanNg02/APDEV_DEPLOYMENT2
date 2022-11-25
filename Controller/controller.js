@@ -165,6 +165,18 @@ const controller = {
 		});
 	},
 
+	generateAdminItem: async function (req,res){
+		var product = req.body.showProduct; 
+
+		//console.log(product); 
+		var item = Product.findOne({name: product}); 
+		 
+		item.exec(function(err,data){
+			if(err) throw err;
+			res.render('itemAdmin', {Item:data});
+		});
+	} , 
+
     saveUser: async function(req, res){
 		const{name, address, username, password, contact_no} = req.body;
 
@@ -218,6 +230,15 @@ const controller = {
 			res.redirect('/shop');
 		}
 	},
+
+	logoutUser: (req, res) => {
+		if (req.session) {
+		  req.session.destroy(() => {
+			res.clearCookie('connect.sid');
+			res.redirect('/');
+		  });
+		}
+	  } , 
 	
 	addItems: async function(req,res) {
 		let productName = req.body.productName; 
@@ -226,7 +247,20 @@ const controller = {
 		let productDescrip = req.body.description;
 		let productImg = req.body.productImage;
 		let productCat = req.body.productCategory;
-	
+		
+		let category = await Category.findOne({name: productCat});
+		if(category == null){
+			Category.create({
+				name:  productCat
+			},
+			   function(err, result){
+				   if(result){
+						console.log("Added Category Succesfully"); 
+				   }
+			   }
+			); 
+		}
+		
 		Product.create({
 			name: productName, 
 			category: productCat, 
