@@ -24,6 +24,7 @@
         <%- include('./staples/Carousel.ejs') %>
 
         <!--Filter-->
+        Filter Your Desired Products Here: 
         <div class="dropdown">
             <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Categories
@@ -42,7 +43,7 @@
               </ul>
           </div>
             
-        <!--products-->
+            <!--products-->
             <%products.forEach(product =>{%>
                 <div class="card border-dark mb-3 text-bg-light mb-3 prdoduct-container" style="max-width: 540px;">
                   <div class="row g-0">
@@ -54,20 +55,22 @@
                         <h5 class="card-title"><%=product.name%></h5>
                         <p class="card-text"><%=product.category%> </p>
                         <p class="card-text">$<%=product.price%> </p>
-                        <!--<Button onclick="Toggle()" id="favorites" class="btn"><i class="fa fa-heart fa-2x"></i></Button>-->  
-                          <div class = "buttonDiv"> 
-                            <form method="post" action="/cart">
-                              <input type="hidden" value="<%=product.id%>" name="itemId">
-                              <input type="hidden" value="<%=product.name%>" name="productName">
-                              <input type="hidden" value="<%=product.price%>" name="productPrice">
-                              <input  type="number" name="items" >
-                              <button  class ="btn btn-4 btn-sep icon-send button btn1" > <img src="images/cart.png" height ="30" width="30"/> </button>
-                            </form>
-                            <form action="/item" method="post">
-                              <button class ="btn btn-4 btn-sep icon-send button btn2" type = "submit"> <img src="images/more.png" height ="30" width="30"/> </button>
-                              <input type = "hidden" name = "showProduct" value = "<%=product.name%>">
-                            </form>
-                          </div>
+
+                        <!--Cart-->
+                        <form method="post" action="/cart" class = "cartForm">
+                          <input type="hidden" value="<%=product.id%>" name="itemId">
+                          <input type="hidden" value="<%=product.name%>" name="productName">
+                          <input type="hidden" value="<%=product.price%>" name="productPrice">
+                          <button  class ="btn btn-4 btn-sep icon-send button btn1 cart" > <img src="images/cart.png" height ="30" width="30"/> </button>
+                          <input  class = "itemCount" type="number" name="items">
+                        </form>
+
+                        <!--Item Page-->
+                        <form action="/item" method="post" class= "itemForm">
+                          More Details Here: 
+                          <button class ="btn btn-4 btn-sep icon-send button btn2 more" type = "submit"> <img src="images/moreArrow.png" height ="30" width="30"/> </button>
+                          <input type = "hidden" name = "showProduct" value = "<%=product.name%>">
+                        </form>
                       </div>
                     </div>
                   </div>

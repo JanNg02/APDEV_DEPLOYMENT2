@@ -84,7 +84,7 @@ const controller = {
 		 let date; 
 		 let total
 		// Finding the order using orderNumber
-		Order.find({orderNumber: req.body.orderView })
+		Order.find({orderNumber: req.body.orderView, username: user})
 			.then(data => {
 				//console.log(data);
 				// Putting all course id's in itemsOrdered array
@@ -114,7 +114,9 @@ const controller = {
 	},
 
     generateAdminView: function (req,res){
-		res.render('adminView');
+		
+		var user = req.session.username; 
+		res.render('adminView', {User: user});
 	},
 
 	generateAdminAdd: function (req,res){
@@ -275,13 +277,12 @@ const controller = {
 		var productPrice = req.body.price;
 		var productStock = req.body.stock;
 		var productDescrip = req.body.description;
-		var productImg = req.body.productImage;
 		var productCat = req.body.productCategory;
 		
 		console.log(productNum); 
 		Product.updateOne({productNumber: productNum},{$set: {name: productName, category: productCat, 
 															  price: productPrice, stock: productStock, 
-															  description: productDescrip, pic: productImg}}, 
+															  description: productDescrip}}, 
 
 			function(err, result){
 				if(result){
@@ -328,54 +329,54 @@ const controller = {
 	}, 
 
 	addCart: async function(req, res){
-		//console.log(req.body.itemId);
+			//console.log(req.body.itemId);
+			
+			const user = req.session.username;
+			const productName = req.body.productName;
+			const productPrice = req.body.productPrice;
+			const items = Number(req.body.items);
+			const total = productPrice * items;
+			console.log(total);
+			const collection = await Cart.findOne({username: user, productName: productName})
+			
+			if(collection == null){
+				const cart = new Cart({
+					username:user,
+					productName: productName, 	
+					items:items,		 
+					price: total, 
 		
-		const user = req.session.username;
-		const productName = req.body.productName;
-		const productPrice = req.body.productPrice;
-		const items = Number(req.body.items);
-		const total = productPrice * items;
-		console.log(total);
-		const collection = await Cart.findOne({username: user, productName: productName})
-		
-		if(collection == null){
-			const cart = new Cart({
-				username:user,
-				productName: productName, 	
-				items:items,		 
-				price: total, 
-	
-			})
-			cart.save(function(err) {
-				if (err){
-					console.log(err);
-					res.redirect("/item");
-				} else{
-					console.log("Loading..");
-					res.redirect("/shop");
-				}
-			});
-		} else{
-			const olditems = collection.items
-			const newitems = olditems + items;
-			const newPrice = (newitems * productPrice).toFixed(2);
+				})
+				cart.save(function(err) {
+					if (err){
+						console.log(err);
+						res.redirect("/item");
+					} else{
+						console.log("Loading..");
+						res.redirect("/shop");
+					}
+				});
+			} else{
+				const olditems = collection.items
+				const newitems = olditems + items;
+				const newPrice = (newitems * productPrice).toFixed(2);
 
-			console.log(newPrice);
-			Cart.updateOne({productName: productName},{$set: {items:newitems, price:newPrice}}, 
+				console.log(newPrice);
+				Cart.updateOne({productName: productName},{$set: {items:newitems, price:newPrice}}, 
 
-			function(err, result){
-				if(result){
-					console.log("Updated Successfully"); 
-					res.redirect('/shop')
-				} else if (err) {
-					console.log("Updated Failed"); 
-					res.redirect('/shop')
+				function(err, result){
+					if(result){
+						console.log("Updated Successfully"); 
+						res.redirect('/shop')
+					} else if (err) {
+						console.log("Updated Failed"); 
+						res.redirect('/shop')
+					}
 				}
+				);
+			
 			}
-			);
-		
-		}
-	},
+		},
 		viewCart: function (req,res){
 			var user = req.session.username; 
 		var item = Cart.find({username:user});
@@ -440,7 +441,7 @@ const controller = {
 				}
 			});
 				
-		   },
+		},
 }
 
 module.exports = controller;
