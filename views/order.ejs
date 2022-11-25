@@ -16,13 +16,14 @@
             <th> </th>
             <tr> <td colspan = "4" class = "head"> <b> Order Details </b></td></tr>
             <tr> <td colspan = "4"> <b> Date: <%=Date%></b> </td> </tr>
-            
-            <%items.forEach(item =>{%>
+            <%let x=0%>
+            <%products.forEach(product =>{%> 
             <tr>
                 <td> </td> 
-                <td> <img src = "images/<%=item.pic%>" class= "pic"><%=item.name%></td> 
-                <td> </td> 
-                <td> $<%=item.price%></td> 
+                <td> <img src = "images/<%=product.pic%>" class= "pic"><%=product.name%></td> 
+                <td>x<%=items[x]%></td> 
+                <%x+=1%>
+                <td> $<%=product.price%></td> 
             </tr><%})%>
             
             <tr> <td colspan = "4"> </td> </tr>

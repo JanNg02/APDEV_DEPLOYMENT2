@@ -29,6 +29,10 @@
               Categories
             </button>
               <ul class="dropdown-menu">
+                <form action ="/shop" method = "get">
+                  <li><button type = "submit" class = "filterButtons">All</button></li>
+                  <input type = "hidden" name = "showCategory" value = "shop">
+                </form>
                 <%category.forEach(category =>{%>
                 <form action ="/filter" method = "post">
                   <li><button type = "submit" class = "filterButtons"><%=category.name%></button></li>

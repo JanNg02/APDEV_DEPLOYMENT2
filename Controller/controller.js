@@ -23,23 +23,14 @@ const controller = {
 		
 		var products = await Product.find({});
 		var category = await Category.find({}); 
-		//console.log(category); 
-		/*item.exec(function(err,data){
-			if(err) throw err;
-			res.render('shop', {products:data,category});
-		});*/
+
 		res.render('shop', {products, category});
 	},
 
 	generateFiltered: async function(req,res) {
 		var products = await Product.find({category: req.body.showCategory});
 		var category = await Category.find({});
-		//console.log(req.body.showCategory); 
 
-		/*item.exec(function(err,data){
-			if(err) throw err;
-			res.render('shop', {products:data});
-		});*/
 		res.render('shop', {products, category});
 	}, 
 
@@ -87,6 +78,7 @@ const controller = {
 	generateOrder: async function (req,res){
 
 		var itemsOrdered = []; 
+		var numberofItems = []; 
 		var user = req.session.username;
 
 		 let date; 
@@ -99,24 +91,18 @@ const controller = {
 				data.map((d, k) => {
 					for(i = 0; i < d.pname.length; i++){
 						itemsOrdered.push(d.pname[i]);
+						numberofItems.push(d.items[i])
 					}
 					date = d.date; 
 					total = d.price; 
 				})
 				//console.log(date);
 				//console.log(total);
-				/*
-				console.log("Stored in Array");
-				for(i = 0; i < itemsOrdered.length; i++){
-					console.log(itemsOrdered[i]); 
-				}*/
 
 				//find all Products from the Array
 				Product.find({ name: { $in: itemsOrdered } })
 					.then(data => {
-						//console.log("Items Ordered")
-						//console.log(data);
-						res.render('order',{items: data, Date: date, Total: total});
+						res.render('order',{products: data, Date: date, Total: total, items: numberofItems});
 					})
 					.catch(error => {
 						console.log(error);
