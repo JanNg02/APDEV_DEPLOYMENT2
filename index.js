@@ -8,7 +8,7 @@ const session = require("express-session");
 const MongoDBSession = require("connect-mongodb-session")(session)
 const flash = require('connect-flash');
 
-const mongoURI = "mongodb://0.0.0.0:27017/MCO"
+const mongoURI = "mongodb+srv://Posh21:Chubbi3s21@cluster0.tlxhdrm.mongodb.net/MCO?retryWrites=true&w=majority"
 
 mongoose.connect(mongoURI , {
     useNewUrlParser: true, 
@@ -52,7 +52,7 @@ app.use((req, res, next) => {
 });
 
 
-/*This is the part to comment out after running once   
+/*This is the part to comment out after running once   */
 addEntry.newUser1(); 
 addEntry.newUser2();
 addEntry.newUser3(); 
@@ -77,7 +77,7 @@ addEntry.newCategory2();
 addEntry.newCategory3();
 addEntry.newCategory4();
 addEntry.newCategory5();
-*/
+
 
 port = 3000; 
 app.listen(port, function(){
