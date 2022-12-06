@@ -325,14 +325,13 @@ const controller = {
 		
 		var name = req.body.name;
 		var address = req.body.address; 
-		var contact = req.body.contanct; 
+		var contact = req.body.contact; 
 		var userName = req.body.username; 
 		var pass = req.body.password;  
 
 		var user = req.session.username; 
 
 		const hashedPassword = await bcrypt.hash(pass, 10);
-		
 		console.log(user); 
 		User.updateOne({username: user},{$set: {name: name, address: address, 
 												   username: userName, password: hashedPassword, 
