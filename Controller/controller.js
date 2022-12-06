@@ -177,7 +177,8 @@ const controller = {
 
 		let user = await User.findOne({username});
 
-		if (user){
+		if (user) {
+			req.flash('error', 'Username already exists');
 			return res.redirect('/register')
 		}
 
@@ -254,21 +255,28 @@ const controller = {
 			); 
 		}
 		
-		Product.create({
-			name: productName, 
-			category: productCat, 
-			price: productPrice, 
-			stock: productStock, 
-			description: productDescrip,
-			pic: productImg 
-		},
-		   function(err, result){
-			   if(result){
-				   	console.log("Added Succesfully"); 
-					res.redirect('/adminAdd')
-			   }
-		   }
-		); 
+		let product = await Product.findOne({name: productName});
+		
+		if(product == null){
+			Product.create({
+				name: productName, 
+				category: productCat, 
+				price: productPrice, 
+				stock: productStock, 
+				description: productDescrip,
+				pic: productImg 
+			},
+			function(err, result){
+				if(result){
+						console.log("Added Succesfully"); 
+						res.redirect('/adminAdd'); 
+				}
+			}
+			); 
+		} else {
+			req.flash('error', 'Product already exists');
+			res.redirect('/adminAdd');
+		}
    },
    
    deleteItems: async function(req,res) { 
@@ -344,7 +352,7 @@ const controller = {
 					res.redirect('/settings')
 				} else if (err) {
 					console.log("Update Failed"); 
-					res.redirect('/settings')
+					res.redirect('/settings'); 
 				}
 			}
 		);

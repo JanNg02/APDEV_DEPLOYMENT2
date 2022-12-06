@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const addEntry = require("./model/dbEntries.js")
 const session = require("express-session");
 const MongoDBSession = require("connect-mongodb-session")(session)
+const flash = require('connect-flash');
 
 const mongoURI = "mongodb://0.0.0.0:27017/MCO"
 
@@ -42,6 +43,14 @@ app.use(session({
     saveUninitialized:false,
     store: store,
 }))
+
+app.use(flash());
+app.use((req, res, next) => {
+	//res.locals.success_msg = req.flash('success_msg');
+	res.locals.error_msg = req.flash('error');
+	next();
+});
+
 
 /*This is the part to comment out after running once   
 addEntry.newUser1(); 
