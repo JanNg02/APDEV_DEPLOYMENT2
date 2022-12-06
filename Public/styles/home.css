@@ -219,4 +219,9 @@ img.avatar {
     color: red;
     cursor: pointer;
 }
+
+.alerts {
+    position: fixed;
+    z-index: 10000;
+}
   

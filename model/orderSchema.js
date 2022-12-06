@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema( {
-    orderNumber: Number, 
+    orderNumber: { type: Number, required: true }, 
     pname:[String],
-    username: String,
-    address: String,
-    contact_no: Number,
-    date: String,
-    price: Number,
+    username: { type: String, required: true },
+    address: { type: String, required: true },
+    contact_no: { type: Number, required: true },
+    date: { type: String, required: true },
+    price: { type: Number, required: true },
     items:[Number],
 });
 //name of the schema, orderSchema (the var)

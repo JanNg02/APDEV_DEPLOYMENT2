@@ -1,3 +1,4 @@
+require('dotenv').config();
 const router = require('./routes.js'); 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -38,7 +39,7 @@ app.set('views', 'view');
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(session({
-    secret:'key that will sign cookie',
+    secret:process.env.SECRET,
     resave: false,
     saveUninitialized:false,
     store: store,
@@ -52,7 +53,7 @@ app.use((req, res, next) => {
 });
 
 
-/*This is the part to comment out after running once   */
+/*This is the part to comment out after running once   
 addEntry.newUser1(); 
 addEntry.newUser2();
 addEntry.newUser3(); 
@@ -77,7 +78,7 @@ addEntry.newCategory2();
 addEntry.newCategory3();
 addEntry.newCategory4();
 addEntry.newCategory5();
-
+*/
 
 port = 3000; 
 app.listen(port, function(){

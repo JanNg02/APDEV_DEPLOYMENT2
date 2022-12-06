@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt") ;
 const Product = require('../model/productsSchema.js');
 const Category = require('../model/categorySchema.js');
 const { raw } = require('body-parser');
+const alert = require('alert')
 
 
 
@@ -209,12 +210,14 @@ const controller = {
 		const user = await User.findOne({username});
 
 		if(!user){
+			alert('Username does not exist')
 			return res.redirect('/');
 		}
 
 		const isMatch = await bcrypt.compare(password, user.password);
 
 		if(!isMatch){
+			alert('Wrong Password')
 			return res.redirect('/');
 		}
 
