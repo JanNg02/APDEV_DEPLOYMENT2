@@ -50,12 +50,13 @@ const controller = {
 	generateSettings: function(req,res){
 		
 		var user = req.session.username; 
+		var pass = req.session.password; 
 
 		var dbUser = User.findOne({username: user}); 
 		
 		dbUser.exec(function(err,data){
 			if(err) throw err;
-			res.render('settings', {userEdit:data});
+			res.render('settings', {userEdit:data, password: pass});
 		});
 	}, 
 
