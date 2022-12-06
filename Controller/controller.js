@@ -217,6 +217,7 @@ const controller = {
 		}
 
 		req.session.username = user.username;
+		req.session.password = password;
 		req.session.isAuth=true;
 		if(user.username == 'admin'){
 			res.redirect('/adminView');
