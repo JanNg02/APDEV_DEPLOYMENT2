@@ -14,6 +14,14 @@ const isAuth = (req, res, next)=>{
     }
 }
 
+const isOut = (req, res, next)=>{
+    if(!req.session.isAuth){
+        next()
+    } else {
+        res.redirect('/');
+    }
+}
+
 const storage = multer.diskStorage({
     destination: (req,file,cb)=>{
         cb(null,'uploads')
@@ -29,7 +37,7 @@ const upload = multer({storage:storage});
 app.get('/', controller.startIndex);
 
 app.get('/shop', isAuth, controller.generateShop);
-app.get('/AboutUs2', controller.generateAboutUs);
+app.get('/AboutUs2',  controller.generateAboutUs);
 app.get('/adminView', isAuth, controller.generateAdminView);
 
 //Filter
@@ -37,7 +45,7 @@ app.post('/filter', isAuth,controller.generateFiltered);
 
 //Login
 app.post('/save', controller.saveUser);
-app.get('/register', controller.generateRegis);
+app.get('/register',  controller.generateRegis);
 app.post('/login', controller.loginUser); 
 app.get('/logout',controller.logoutUser); 
 
