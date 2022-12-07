@@ -101,6 +101,11 @@ a {
     text-align: center;
 }
 
+.error{
+    color: red; 
+    font-size:110%; 
+}
+
 /* General button style */
 .btn {
 	border: none;

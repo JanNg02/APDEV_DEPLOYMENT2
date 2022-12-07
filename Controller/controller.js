@@ -171,7 +171,7 @@ const controller = {
 			if(err) throw err;
 			res.render('itemAdmin', {Item:data});
 		});
-	} , 
+	}, 
 
     saveUser: async function(req, res){
 		const{name, address, username, password, contact_no} = req.body;
@@ -179,7 +179,7 @@ const controller = {
 		let user = await User.findOne({username});
 
 		if (user) {
-			req.flash('error', 'Username already exists');
+			req.flash('error', 'Username already exists, Please choose a different one');
 			return res.redirect('/register')
 		}
 
