@@ -5,7 +5,8 @@ const bcrypt = require("bcrypt") ;
 const Product = require('../model/productsSchema.js');
 const Category = require('../model/categorySchema.js');
 const { raw } = require('body-parser');
-const alert = require('alert')
+const alert = require('alert');
+const session = require('express-session');
 
 
 
@@ -353,16 +354,34 @@ const controller = {
 
 		var user = req.session.username; 
 
+		const order = await Order.find({username: user})
+		const cart = await Cart.find({username: user})
+		
 		const hashedPassword = await bcrypt.hash(pass, 10);
+		console.log(cart)
 		console.log(user); 
 		User.updateOne({username: user},{$set: {name: name, address: address, 
 												   username: userName, password: hashedPassword, 
 												   contact_no: contact}}, 
-
-			function(err, result){
+			
+			async function(err, result){
 				if(result){
-					console.log("Updated Users Successfully"); 
-					res.redirect('/settings')
+					for(j=0;j<cart.length;j++){
+						await Cart.updateOne({username: cart[j].username},{$set: {username: userName}})
+					}
+					for(j=0;j<order.length;j++){
+						await Order.updateOne({username: order[j].username},{$set: {username: userName}})
+					}
+
+					req.session.save(function(err) {
+						req.session.username = userName
+						req.session.password = pass
+						console.log("Updated Users Successfully"); 
+						alert("Updated User Successfully... Please reload the page")
+						res.redirect('/settings')
+					  })
+					
+					
 				} else if (err) {
 					console.log("Update Failed"); 
 					res.redirect('/settings'); 
