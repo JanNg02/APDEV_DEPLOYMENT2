@@ -44,56 +44,67 @@
           </div>
             
             <!--products-->
-            <%let x = 1;%>
-            <%let y = 0;%>
-            <table>
-            <%products.forEach(product =>{%>
+            <div class = productSection>
 
-              <%if (product.stock != 0){ %>
-              <% if(((x-1)%3 == 0 && x != 1) || x == 0) {%>
-                <tr>
-                  <%y = x%>
-                <% }%>
-                <td>
-                <div class="card border-dark mb-3 text-bg-light mb-3 prdoduct-container" style="max-width: 540px;">
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src="uploads/<%=product.pic%>" class="img-fluid rounded-start table-image" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title"><%=product.name%></h5>
-                        <p class="card-text"><%=product.category%> </p>
-                        <p class="card-text">$<%=product.price%> </p>
-                        <p class="card-text">Total Stock Remaining: <%=product.stock%> </p>
+              <% if(error_msg) { %>    
+                <p class = "error message"> <%= error_msg %> </p>
+              <% } %>	
 
-                        <!--Cart-->
-                        <form method="post" action="/cart" class = "cartForm">
-                          <input type="hidden" value="<%=product.id%>" name="itemId">
-                          <input type="hidden" value="<%=product.name%>" name="productName">
-                          <input type="hidden" value="<%=product.price%>" name="productPrice">
-                          <button  class ="btn btn-4 btn-sep icon-send button btn1 cart" > <img src="images/cart.png" height ="30" width="30"/> </button>
-                          <input  class = "itemCount" type="number" name="items" min ="1" max="<%=product.stock%>">
-                        </form>
+              <% if(success_msg) { %>    
+                <p class = "error message"> <%= success_msg %> </p>
+              <% } %>	
 
-                        <!--Item Page-->
-                        <form action="/item" method="post" class= "itemForm">
-                          More Details Here: 
-                          <button class ="btn btn-4 btn-sep icon-send button btn2 more" type = "submit"> <img src="images/moreArrow.png" height ="30" width="30"/> </button>
-                          <input type = "hidden" name = "showProduct" value = "<%=product.name%>">
-                        </form>
+              <%let x = 1;%>
+              <%let y = 0;%>
+              <table>
+              <%products.forEach(product =>{%>
+
+                <%if (product.stock != 0){ %>
+                <% if(((x-1)%3 == 0 && x != 1) || x == 0) {%>
+                    <tr>
+                      <%y = x%>
+                    <% }%>
+                    <td>
+                    <div class="card border-dark mb-3 text-bg-light mb-3 prdoduct-container" style="max-width: 540px;">
+                      <div class="row g-0">
+                        <div class="col-md-4">
+                          <img src="uploads/<%=product.pic%>" class="img-fluid rounded-start table-image" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <h5 class="card-title"><%=product.name%></h5>
+                            <p class="card-text"><%=product.category%> </p>
+                            <p class="card-text">$<%=product.price%> </p>
+                            <p class="card-text">Total Stock Remaining: <%=product.stock%> </p>
+
+                            <!--Cart-->
+                            <form method="post" action="/cart" class = "cartForm">
+                              <input type="hidden" value="<%=product.id%>" name="itemId">
+                              <input type="hidden" value="<%=product.name%>" name="productName">
+                              <input type="hidden" value="<%=product.price%>" name="productPrice">
+                              <button  class ="btn btn-4 btn-sep icon-send button btn1 cart" > <img src="images/cart.png" height ="30" width="30"/> </button>
+                              <input  class = "itemCount" type="number" name="items" min ="1" max="<%=product.stock%>">
+                            </form>
+
+                            <!--Item Page-->
+                            <form action="/item" method="post" class= "itemForm">
+                              More Details Here: 
+                              <button class ="btn btn-4 btn-sep icon-send button btn2 more" type = "submit"> <img src="images/moreArrow.png" height ="30" width="30"/> </button>
+                              <input type = "hidden" name = "showProduct" value = "<%=product.name%>">
+                            </form>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                </td>
-                <% if (x == (y+3)){ %>
-                 </tr>
+                    </td>
+                    <% if (x == (y+3)){ %>
+                    </tr>
+                    <% } %>
+                  <% x+=1;%>
                 <% } %>
-                <% x+=1;%>
-                <% } %>
-              <%})%>
-              </table>
+                <%})%>
+                </table>
+            </div>
         <!--Footer--> 
         <%- include('./staples/footer.ejs') %>
     </body>

@@ -19,17 +19,27 @@ const controller = {
 
     generateShop: async function (req,res){
 		
+		var carousels = await Product.find({});
 		var products = await Product.find({});
 		var category = await Category.find({}); 
 
-		res.render('shop', {products, category});
+		//req.flash('success_msg', 'Select Products you want to buy');
+
+		res.render('shop', {products, category, carousels});
 	},
 
 	generateFiltered: async function(req,res) {
+		var carousels = await Product.find({});
 		var products = await Product.find({category: req.body.showCategory});
 		var category = await Category.find({});
 
-		res.render('shop', {products, category});
+		if(products == 0){
+			req.flash('error', 'No products in this category');
+		} else{
+			req.flash('success_msg', 'Select Products you want to buy');
+		}
+
+		res.render('shop', {products, category, carousels});
 	}, 
 
 	generateAboutUs: function (req,res){
