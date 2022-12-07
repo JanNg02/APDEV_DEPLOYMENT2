@@ -277,7 +277,7 @@ const controller = {
 			}
 			); 
 		} else {
-			req.flash('error', 'Product already exists');
+			req.flash('error', 'Product name already exists, could be the same product');
 			res.redirect('/adminAdd');
 		}
    },
