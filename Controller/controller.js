@@ -261,12 +261,13 @@ const controller = {
 		let productCat = req.body.productCategory;
 		let productImg = req.file.filename; 
 		
-		let category = await Category.findOne({name: productCat});
+		let productLower = productCat.toLowerCase(); 
+
+		let category = await Category.findOne({name: productLower});
 		if(category == null){
 			Category.create({
 				name:  productCat
-			},
-			   
+			},   
 			); 
 		}
 		
@@ -275,7 +276,7 @@ const controller = {
 		if(product == null){
 			Product.create({
 				name: productName, 
-				category: productCat, 
+				category: productLower, 
 				price: productPrice, 
 				stock: productStock, 
 				description: productDescrip,

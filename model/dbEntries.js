@@ -268,7 +268,7 @@ const addEnrty = {
 
     newCategory1: function () {
         var newCategory = {
-            name: "Allergy"
+            name: "allergy"
         };
         Category.create(newCategory, err => {
             if (err) console.log(err);
@@ -277,7 +277,7 @@ const addEnrty = {
 
     newCategory2: function () {
         var newCategory = {
-            name: "Ticks and Fleas"
+            name: "ticks and fleas"
         };
         Category.create(newCategory, err => {
             if (err) console.log(err);
@@ -286,7 +286,7 @@ const addEnrty = {
 
     newCategory3: function () {
         var newCategory = {
-            name: "Maintenance"
+            name: "maintenance"
         };
         Category.create(newCategory, err => {
             if (err) console.log(err);
@@ -295,7 +295,7 @@ const addEnrty = {
 
     newCategory4: function () {
         var newCategory = {
-            name: "Diabetis"
+            name: "diabetis"
         };
         Category.create(newCategory, err => {
             if (err) console.log(err);
@@ -304,7 +304,7 @@ const addEnrty = {
 
     newCategory5: function () {
         var newCategory = {
-            name: "Food"
+            name: "food"
         };
         Category.create(newCategory, err => {
             if (err) console.log(err);
