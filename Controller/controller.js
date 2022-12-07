@@ -210,6 +210,7 @@ const controller = {
 				res.redirect("/register");
             } else{
 				console.log("Loading..");
+				alert('Successfully Registered')
                 res.redirect("/");
             }
         });
@@ -282,6 +283,7 @@ const controller = {
 			},
 			function(err, result){
 				if(result){
+						alert("Added Succesfully")
 						console.log("Added Succesfully"); 
 						res.redirect('/adminAdd'); 
 				}
@@ -521,7 +523,7 @@ const controller = {
 					console.log(err);
 					res.redirect("/checkout");
 				} else{
-						
+					alert("Successfully Purchased")
 					console.log("Loading..");
 					res.redirect("/shop");
 				}
