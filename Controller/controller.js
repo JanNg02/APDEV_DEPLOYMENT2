@@ -210,7 +210,7 @@ const controller = {
 				res.redirect("/register");
             } else{
 				console.log("Loading..");
-				alert('Successfully Registered')
+				//alert('Successfully Registered')
                 res.redirect("/");
             }
         });
@@ -222,14 +222,14 @@ const controller = {
 		const user = await User.findOne({username});
 
 		if(!user){
-			alert('Username does not exist')
+			//alert('Username does not exist')
 			return res.redirect('/');
 		}
 
 		const isMatch = await bcrypt.compare(password, user.password);
 
 		if(!isMatch){
-			alert('Wrong Password')
+			//alert('Wrong Password')
 			return res.redirect('/');
 		}
 
@@ -284,7 +284,7 @@ const controller = {
 			},
 			function(err, result){
 				if(result){
-						alert("Added Succesfully")
+						//alert("Added Succesfully")
 						console.log("Added Succesfully"); 
 						res.redirect('/adminAdd'); 
 				}
@@ -380,7 +380,7 @@ const controller = {
 						req.session.username = userName
 						req.session.password = pass
 						console.log("Updated Users Successfully"); 
-						alert("Updated User Successfully... Please reload the page")
+						//alert("Updated User Successfully... Please reload the page")
 						res.redirect('/settings')
 					  })
 					
@@ -524,7 +524,7 @@ const controller = {
 					console.log(err);
 					res.redirect("/checkout");
 				} else{
-					alert("Successfully Purchased")
+					//alert("Successfully Purchased")
 					console.log("Loading..");
 					res.redirect("/shop");
 				}
