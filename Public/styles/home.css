@@ -220,8 +220,8 @@ img.avatar {
     cursor: pointer;
 }
 
-.alerts {
-    position: fixed;
-    z-index: 10000;
+.error{
+    color: red;
+    font-size: 16px;
 }
   

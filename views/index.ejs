@@ -24,7 +24,12 @@
                 and look forward to meeting you in our store in the near future.</p>
             
             <!--For Login Form to appear--> 
+           
+              
             <button id="bmodal" >Start Now!</button>
+            <% if(error_msg) { %>    
+                <p class = "error "> <%= error_msg %> </p>
+              <% } %>	
         </div>
         </div>
 
@@ -42,9 +47,7 @@
 
           <label for="password"><b>Password</b></label>
 		  <input type="password" placeholder="Enter Password" name="password" id="password" minlength="8" maxlength="20" required>
-          <% if(error_msg) { %>    
-            <p class = "error messsage"> <%= error_msg %> </p>
-          <% } %>	
+         
 
 
 		  <button id="submit">Login</button>

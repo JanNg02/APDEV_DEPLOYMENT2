@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt") ;
 const Product = require('../model/productsSchema');
 const Category = require('../model/categorySchema');
 const { raw } = require('body-parser');
-const notifier = require('node-notifier');
+//const notifier = require('node-notifier');
 const session = require('express-session');
 
 
@@ -223,7 +223,8 @@ const controller = {
 		const user = await User.findOne({username});
 
 		if(!user){
-			notifier.notify('Username does not exist');
+			req.flash('error', 'Username does not exist');
+			//notifier.notify('Username does not exist');
 			  return res.redirect('/');
 			 
 		}
@@ -231,7 +232,8 @@ const controller = {
 		const isMatch = await bcrypt.compare(password, user.password);
 
 		if(!isMatch){
-			notifier.notify('Wrong password');
+			req.flash('error', 'Wrong password');
+			//notifier.notify('Wrong password');
 			return res.redirect('/');
 		}
 
@@ -531,7 +533,7 @@ const controller = {
 					console.log(err);
 					res.redirect("/checkout");
 				} else{
-					notifier.notify('Successfully Purchased');
+					//notifier.notify('Successfully Purchased');
 					console.log("Loading..");
 					res.redirect("/shop");
 				}
