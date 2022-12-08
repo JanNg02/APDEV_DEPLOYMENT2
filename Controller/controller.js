@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt") ;
 const Product = require('../model/productsSchema.js');
 const Category = require('../model/categorySchema.js');
 const { raw } = require('body-parser');
-const alert = require('alert');
+//const alert = require('alert');
 const session = require('express-session');
 
 
