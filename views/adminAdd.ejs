@@ -14,9 +14,15 @@
         <form id="addProduct" form action="/add" method = "POST"  enctype="multipart/form-data">
               <h1>Add a new Product</h1>
               <p>Fill in the form below to add an item</p>
+
               <% if(error_msg) { %>    
                 <p class = "error"> <%= error_msg %> </p>
-              <% } %>	
+              <% } %>
+              
+              <% if(success_msg) { %>    
+                <p class = "successMsg"> <%= success_msg %> </p>
+              <% } %>
+              
               <hr>
               <label for="productName"><b>Product Name</b></label>
               <input type="text" name="productName" required>
@@ -35,7 +41,6 @@
             </br> </br>
               <label for="productCategory"><b>Category</b></label>
               <input type="text" name="productCategory" required>
-            
               <hr>
                 <!--<form action="/" method = "POST">-->
                 <button  type="submit" class="registerbtn">Add</button>

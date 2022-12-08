@@ -210,8 +210,9 @@ const controller = {
 				res.redirect("/register");
             } else{
 				console.log("Loading..");
+				req.flash('success_msg', 'Successfully Registered');
 				//alert('Successfully Registered')
-                res.redirect("/");
+                res.redirect("/register");
             }
         });
     },
@@ -284,9 +285,10 @@ const controller = {
 			},
 			function(err, result){
 				if(result){
-						//alert("Added Succesfully")
-						console.log("Added Succesfully"); 
-						res.redirect('/adminAdd'); 
+					//alert("Added Succesfully")
+					req.flash('success_msg', 'Successfully Added a New Product');
+					console.log("Added Succesfully"); 
+					res.redirect('/adminAdd'); 
 				}
 			}
 			); 
@@ -302,6 +304,7 @@ const controller = {
 		
 		function(err, result){
 		if(result){
+			req.flash('success_msg', 'Removed Succesfully');
 				console.log("Removed Succesfully"); 
 			 	res.redirect('/adminRemove')
 		}
@@ -380,6 +383,7 @@ const controller = {
 						req.session.username = userName
 						req.session.password = pass
 						console.log("Updated Users Successfully"); 
+						req.flash('success_msg', 'Updated User Successfully... Please reload the page');
 						//alert("Updated User Successfully... Please reload the page")
 						res.redirect('/settings')
 					  })
@@ -404,10 +408,11 @@ const controller = {
                 console.log(err);
             }
             else {
+				req.flash('success_msg', 'Updated User Image Successfully... Please reload the page');
                 console.log("Successfully updated Pic");
+				res.redirect('/pfpUser');
             }
-        })
-        res.redirect('/settings');
+        })	
     },
 
 	addCart: async function(req, res){
@@ -458,6 +463,7 @@ const controller = {
 			
 			}
 		},
+
 		viewCart: function (req,res){
 			var user = req.session.username; 
 			var item = Cart.find({username:user});

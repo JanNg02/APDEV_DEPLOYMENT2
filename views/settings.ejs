@@ -12,6 +12,7 @@
     </head>
     
     <body>
+
       <form action="/editUser" id="setting" method ="post">
         <label for="name"><b>Name</b></label>     
         <input type="text" value="<%=userEdit.name%>" name="name" id = "name">
@@ -27,6 +28,14 @@
     
         <label for="password"><b>Password</b></label>
         <input type="password" value="<%=password%>" name="password" id = "password" minlength="8" maxlength="20">
+        
+        <% if(error_msg) { %>    
+          <p class = "error"> <%= error_msg %> </p>
+        <% } %>
+        
+        <% if(success_msg) { %>    
+          <p class = "successMsg"> <%= success_msg %> </p>
+        <% } %>
         
         <button  type="submit" class="registerbtn">Save</button>
       </form>

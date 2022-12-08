@@ -12,6 +12,15 @@
     <body> 
       <h1> Remove an Item from the Store </h1>
       <p> Click the dash button to delete </p>
+      
+      <% if(error_msg) { %>    
+        <p class = "error"> <%= error_msg %> </p>
+      <% } %>
+      
+      <% if(success_msg) { %>    
+        <p class = "successMsg"> <%= success_msg %> </p>
+      <% } %>
+
         <table class="table align-middle">
           <thead>
             <tr>

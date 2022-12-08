@@ -9,10 +9,17 @@
         
         <script type = "text/javascript" src="js/settings.js"></script> 
     </head>
-    <body>
+    <body>         
         <label for="productImage"><b>Image</b></label> </br>
         <form method = "post" action = "/changePfp" enctype="multipart/form-data">
         <input type="file"  name="userImage"  accept="image/*" required>
+        <% if(error_msg) { %>    
+            <p class = "error"> <%= error_msg %> </p>
+          <% } %>
+          
+          <% if(success_msg) { %>    
+            <p class = "successMsg"> <%= success_msg %> </p>
+          <% } %>
             <button type = "submit" class="registerbtn"> Upload </button>
         </form>
     </body>
