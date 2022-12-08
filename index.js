@@ -11,6 +11,7 @@ const flash = require('connect-flash');
 
 const mongoURI = process.env.URL; 
 
+mongoose.set('strictQuery',true)
 mongoose.connect(mongoURI , {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
