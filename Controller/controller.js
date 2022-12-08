@@ -1,11 +1,11 @@
-const User = require('../Model/usersSchema');
-const Order = require('../Model/orderSchema');
-const Cart = require('../Model/cartSchema');
+const User = require('../model/usersSchema');
+const Order = require('../model/orderSchema');
+const Cart = require('../model/cartSchema');
 const bcrypt = require("bcrypt") ;
-const Product = require('../Model/productsSchema');
-const Category = require('../Model/categorySchema');
+const Product = require('../model/productsSchema');
+const Category = require('../model/categorySchema');
 const { raw } = require('body-parser');
-//const alert = require('alert');
+const alert = require('alert');
 const session = require('express-session');
 
 
