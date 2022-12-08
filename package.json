@@ -1,5 +1,5 @@
 {
-  "name": "apdevmp",
+  "name": "apdev_deployment2",
   "version": "1.0.0",
   "description": "- John Marvic Mojica\r + Jan Daniel Ng",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JanNg02/APDEVMP.git"
+    "url": "git+https://github.com/JanNg02/APDEV_DEPLOYMENT2.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JanNg02/APDEVMP/issues"
+    "url": "https://github.com/JanNg02/APDEV_DEPLOYMENT2/issues"
   },
-  "homepage": "https://github.com/JanNg02/APDEVMP#readme",
+  "homepage": "https://github.com/JanNg02/APDEV_DEPLOYMENT2#readme",
   "dependencies": {
     "alert": "^5.1.2",
     "bcrypt": "^5.1.0",
