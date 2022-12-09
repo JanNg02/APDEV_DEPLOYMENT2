@@ -21,8 +21,10 @@
 - multer
 + nodemon
 - router
++ dotenv
+- connect-flash
 
-## SECTION 1: Instructions
+## Instructions for Deploying Locally
 ### Installation Instructions
 1. delete current package.json and package-lock.json files 
 2. delete current node_modules folder
@@ -37,7 +39,7 @@ Running the code for the first time will populate the database so to avoid dupli
 1. open index.js 
 2. comment out line 47 to 70  
 
-## SECTION 2: Modules to install (for step 5 of installation instructions)
+
 ### Base
 - connect-mongodb-session
 + ejs
@@ -46,7 +48,9 @@ Running the code for the first time will populate the database so to avoid dupli
 + mongoose
 + nodemon
 - router
->(npm i ejs express mongodb mongoose nodemon router connect-mongodb-session)
++ connect-flash
+- dotenv
+>(npm i ejs express mongodb mongoose nodemon router connect-mongodb-session connect-flash dotenv)
 
 ### For Login
 + body-parser
@@ -58,7 +62,7 @@ Running the code for the first time will populate the database so to avoid dupli
 - multer
 >(npm i multer)
 
-## SECTION 3: Other Important Information
+
 ### Account and Passwords Already in Database
 1. Username: kawaiiwa 
     - Password: password1 

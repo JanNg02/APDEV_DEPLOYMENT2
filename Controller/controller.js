@@ -431,7 +431,8 @@ const controller = {
 			if(collection == null){
 				const cart = new Cart({
 					username:user,
-					productName: productName, 	
+					productName: productName, 
+					rawPrice: productPrice,
 					items:items,		 
 					price: total, 
 		
@@ -477,7 +478,19 @@ const controller = {
 			res.render('viewCart', {carts:data});
 		});
 		},
-
+		/*
+		updateItem: function(req, res){
+			const items = req.body.items
+			const userId = req.params.cartId;
+			Cart.findByIdAndRemove(userId, function(err){
+				if (err){
+					console.log(err);
+				} else{
+					res.redirect('/viewCart');
+				}
+			});
+		},
+		*/
 		deleteItem: function(req, res){
 			const userId = req.params.cartId;
 			Cart.findByIdAndRemove(userId, function(err){
@@ -496,6 +509,7 @@ const controller = {
 			const prod =  await Product.find({})
 			const orders = await Order.find({username: user})
 			var products = [];
+			var pproducts= [];
 			var items = [];
 			var number = Number(orders.length + 1);
 			const dateNow = new Date();
@@ -503,6 +517,7 @@ const controller = {
 			console.log(prod.length)
 			for(i=0;i<cart.length;i++){
 				products.push(cart[i].productName);
+				pproducts.push(cart[i].rawPrice)
 				items.push(cart[i].items);
 				for(j=0;j<prod.length;j++){
 					if(prod[j].name == cart[i].productName){
@@ -520,6 +535,7 @@ const controller = {
 			const carts = new Order({
 				orderNumber: number,
 				pname: products,
+				pprice: pproducts,
 				username : user,
 				address : peeps.address,
 				contact_no: peeps.contact_no,

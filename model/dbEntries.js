@@ -178,6 +178,7 @@ const addEnrty = {
         var newOrder = {
             orderNumber: 1, 
             pname: ["Heartgard"],
+            pprice: [67.99],
             username: "nath01",
             adress: "Caloocan City",
             contact_no: "09124562398",
@@ -197,6 +198,7 @@ const addEnrty = {
         var newOrder = {
             orderNumber: 2, 
             pname: ["Heartgard", "Nexgard"],
+            pprice: [67.99, 72.99],
             username: "kawaiiwa",
             adress: "Caloocan City",
             contact_no: "09124562398",
@@ -216,6 +218,7 @@ const addEnrty = {
         var newOrder = {
             orderNumber: 3,
             pname: ["Alleryease", "Nexgard"],
+            pprice: [900, 72.99],
             username: "greenarw",
             adress: "Caloocan City",
             contact_no: "09124562398",
@@ -235,6 +238,7 @@ const addEnrty = {
         var newOrder = {
             orderNumber: 4,
             pname: ["Simparica"],
+            pprice: [161.41],
             username: "jayzone",
             adress: "Caloocan City",
             contact_no: "09124562398",
@@ -254,6 +258,7 @@ const addEnrty = {
         var newOrder = {
             orderNumber: 5,
             pname: ["Heartgard"],
+            pprice: [67.99],
             username: "cutiee314",
             adress: "Caloocan City",
             contact_no: "09124562398",
