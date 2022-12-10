@@ -77,7 +77,7 @@ app.post('/edit', isAuth,controller.editItem);
 app.post('/item',isAuth, controller.generateItemPage); 
 app.post('/cart', isAuth,controller.addCart)
 app.get('/viewCart', isAuth,controller.viewCart)
-app.get('/update/:cartId', isAuth,controller.updateItem)
+app.post('/updateCartItems', isAuth,controller.updateItem)
 app.get('/delete/:cartId', isAuth,controller.deleteItem)
 app.post('/checkout', isAuth,controller.checkout)
 

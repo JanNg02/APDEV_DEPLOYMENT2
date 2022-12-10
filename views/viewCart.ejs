@@ -22,7 +22,7 @@
   <%- include('./staples/navbar.ejs') %>
 
   <br>
-  <form method="post" action="/checkout">
+  
     <div class="container">
       <h1>Cart</h1>
       <p>Here is/are the product/s in your Cart</p>
@@ -34,8 +34,8 @@
                 <th>Raw Price</th>
                 <th># of Items</th>
                 <th>Price</th>
-                <th>Action 1</th>
-                <th>Action 2</th>
+                <th>Remove Items</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -47,12 +47,22 @@
                     <td><%= cart.items %></td>
                     <td>$<%= cart.price %></td>
                     <td>  
-                      
-                      <a href="update/<%= cart.id %>" id = "deleteButton"><input  class = "itemCount" type="number" name="items" min ="1" max="<%=cart.items%>">Remove Items</a>
+
+                      <form method="post" action="/updateCartItems">
+                        <input type="hidden" value="<%=cart.id%>" name="itemId">
+                        <input  class = "itemCount" type="number" name="itemsRemoved" min ="0" max="<%=cart.items%>"> &nbsp; 
+                        <input type="hidden" value="<%= cart.productName%>" name="removeProduct">
+                        <button  type="submit" class = "remove"> Remove Item </button> 
+                      </form>
+                    
                     </td>
-                    <td>  
-                      <a href="delete/<%= cart.id %>" id = "deleteButton">Delete</a>
+
+                    <td>
+                      <form method="get" action="delete/<%= cart.id %>">
+                        <button  type="submit" class = "remove"> Delete </button>
+                      </form>  
                     </td>
+                    
                 </tr>                
             <% }); %>
             <tr>
@@ -70,12 +80,15 @@
             
         </tbody>
     </table>
-    <button  type="submit" class="registerbtn">Checkout</button>
+
+    <form method="post" action="/checkout">
+      <button  type="submit" class="registerbtn">Checkout</button>
+    </form>
+
     <div class="container signin">
       <p>Wish to add more? <a href="/shop">Add more products</a>.</p> <!--Redirect to Home Page--> 
     </div>
     </div>
-  </form>
   <br>
 
 

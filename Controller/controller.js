@@ -478,19 +478,37 @@ const controller = {
 			res.render('viewCart', {carts:data});
 		});
 		},
-		/*
-		updateItem: function(req, res){
-			const items = req.body.items
-			const userId = req.params.cartId;
-			Cart.findByIdAndRemove(userId, function(err){
-				if (err){
-					console.log(err);
-				} else{
-					res.redirect('/viewCart');
+		
+		updateItem: async function(req, res){
+			const items = req.body.itemsRemoved; 
+			const productName = req.body.removeProduct; 
+			const userId = req.body.cartId;
+			const user = req.session.username;
+
+			//look for the old cart and product
+			const cart = await Cart.findOne({objectId: userId}); 
+			const productPrice = await Product.findOne({name: productName});
+			
+			//remove x items
+			var newItems = cart.items - items; 
+
+			//change Price
+			const newPrice = (newItems * productPrice.price).toFixed(2);
+			
+			Cart.updateOne({objectId: userId},{$set: {items:newItems, price:newPrice}}, 
+
+				function(err, result){
+					if(result){
+						console.log("Updated Successfully"); 
+						res.redirect('/viewCart')
+					} else if (err) {
+						console.log("Update Failed"); 
+						res.redirect('/viewCart')
+					}
 				}
-			});
+				)
 		},
-		*/
+		
 		deleteItem: function(req, res){
 			const userId = req.params.cartId;
 			Cart.findByIdAndRemove(userId, function(err){
