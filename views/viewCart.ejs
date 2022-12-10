@@ -75,13 +75,13 @@
                    }); %>
                   $<%= totalPrice%>
               </td>
-              <input type="hidden" value="<%= totalPrice%>" name="totalPrice">
           </tr>  
             
         </tbody>
     </table>
 
     <form method="post" action="/checkout">
+      <input type="hidden" value="<%= totalPrice%>" name="totalPrice">
       <button  type="submit" class="registerbtn">Checkout</button>
     </form>
 

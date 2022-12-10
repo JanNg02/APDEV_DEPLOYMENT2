@@ -533,6 +533,7 @@ const controller = {
 			const dateNow = new Date();
         	const date = dateNow.toDateString() + " " + dateNow.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 			console.log(prod.length)
+			
 			for(i=0;i<cart.length;i++){
 				products.push(cart[i].productName);
 				pproducts.push(cart[i].rawPrice)
@@ -541,7 +542,7 @@ const controller = {
 					if(prod[j].name == cart[i].productName){
 						//console.log(prod[j].name)
 						const newStock = Number(prod[j].stock - cart[i].items)
-						console.log(newStock)
+						//console.log(newStock)
 						await Product.updateOne({name: cart[i].productName},{$set: {stock: newStock}})
 					}
 				}
