@@ -88,10 +88,12 @@ const controller = {
 
 		var itemsOrdered = []; 
 		var numberofItems = []; 
+		var productPrice = []; 
 		var user = req.session.username;
 
-		 let date; 
-		 let total
+		let date; 
+		let total; 
+
 		// Finding the order using orderNumber
 		Order.find({orderNumber: req.body.orderView, username: user})
 			.then(data => {
@@ -100,7 +102,8 @@ const controller = {
 				data.map((d, k) => {
 					for(i = 0; i < d.pname.length; i++){
 						itemsOrdered.push(d.pname[i]);
-						numberofItems.push(d.items[i])
+						numberofItems.push(d.items[i]); 
+						productPrice.push(d.pprice[i]); 
 					}
 					date = d.date; 
 					total = d.price; 
@@ -109,7 +112,7 @@ const controller = {
 				//find all Products from the Array
 				Product.find({ name: { $in: itemsOrdered } })
 					.then(data => {
-						res.render('order',{products: data, Date: date, Total: total, items: numberofItems});
+						res.render('order',{products: data, Date: date, Total: total, items: numberofItems, price: productPrice});
 					})
 					.catch(error => {
 						console.log(error);
