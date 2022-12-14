@@ -427,7 +427,7 @@ const controller = {
 			const productName = req.body.productName;
 			const productPrice = req.body.productPrice;
 			const items = Number(req.body.items);
-			const total = productPrice * items;
+			const total = (productPrice * items).toFixed(2);
 			console.log(total);
 			const collection = await Cart.findOne({username: user, productName: productName})
 			
