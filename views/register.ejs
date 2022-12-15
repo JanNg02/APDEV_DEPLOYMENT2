@@ -30,14 +30,6 @@
       <p>Please fill in this form to create an account.</p>
       <hr>
 
-      <% if(error_msg) { %>    
-        <p class = "error message"> <%= error_msg %> </p>
-      <% } %>	
-
-      <% if(success_msg) { %>    
-        <p class = "successMsg"> <%= success_msg %> </p>
-      <% } %>	
-
       <label for="name"><b>Name</b></label>
       <input type="text" placeholder="Enter Name" name="name" id="name" required>
 
@@ -54,7 +46,14 @@
       <input type="tel" placeholder="Enter Contact Number (e.g. 09123456789)" name="contact_no" id="contact_no" pattern="[0-9]{11}" maxlength = "11" required>
 	
       <hr>
+      <% if(error_msg) { %>    
+        <p class = "error message"> <%= error_msg %> </p>
+      <% } %>	
 
+      <% if(success_msg) { %>    
+        <p class = "successMsg"> <%= success_msg %> </p>
+      <% } %>	
+      
       <button  type="submit" class="registerbtn">Register</button>
     </div>
 
