@@ -31,7 +31,7 @@
         <thead>
             <tr>
                 <th>Product Name</th>
-                <th>Raw Price</th>
+                <th>Unit Price</th>
                 <th># of Items</th>
                 <th>Sub Total</th>
                 <th>Remove Items</th>
@@ -66,14 +66,14 @@
                 </tr>                
             <% }); %>
             <tr>
-              <td colspan="3">Total Price</td>
+              <td colspan="3"> <b> Total Price </b> </td> 
         
               <td colspan="3">  
                 <% var totalPrice = 0 %>
                 <%carts.forEach(cart =>{
                    totalPrice += cart.price; 
                    }); %>
-                  $<%= totalPrice.toFixed(2)%>
+                  <b> $<%= totalPrice.toFixed(2)%> </b>
               </td>
           </tr>  
             
