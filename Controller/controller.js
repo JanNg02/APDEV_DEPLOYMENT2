@@ -475,11 +475,11 @@ const controller = {
 			var user = req.session.username; 
 			var item = Cart.find({username:user});
 
-		console.log(user);  
-		item.exec(function(err,data){
-			if(err) throw err;
-			res.render('viewCart', {carts:data});
-		});
+			console.log(user);  
+			item.exec(function(err,data){
+				if(err) throw err;
+				res.render('viewCart', {carts:data});
+			});
 		},
 		
 		updateItem: async function(req, res){
