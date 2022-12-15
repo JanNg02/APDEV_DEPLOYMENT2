@@ -9,7 +9,7 @@ const session = require("express-session");
 const MongoDBSession = require("connect-mongodb-session")(session)
 const flash = require('connect-flash');
 
-const mongoURI = process.env.URL; 
+const mongoURI = URL = "mongodb+srv://Posh21:"+process.env.URL_PASS+"@cluster0.tlxhdrm.mongodb.net/MCO?retryWrites=true&w=majority"; 
 
 mongoose.set('strictQuery',true)
 mongoose.connect(mongoURI , {
