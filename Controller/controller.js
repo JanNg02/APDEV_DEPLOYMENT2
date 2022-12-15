@@ -498,18 +498,30 @@ const controller = {
 			//change Price
 			const newPrice = (newItems * productPrice.price).toFixed(2);
 			
-			Cart.updateOne({objectId: userId},{$set: {items:newItems, price:newPrice}}, 
-
-				function(err, result){
-					if(result){
-						console.log("Updated Successfully"); 
-						res.redirect('/viewCart')
-					} else if (err) {
-						console.log("Update Failed"); 
-						res.redirect('/viewCart')
+			console.log(userId); 
+			if(newItems ==  0){
+				Cart.deleteOne(userId, function(err){
+					if (err){
+						console.log(err);
+					} else{
+						
+						res.redirect('/viewCart');
 					}
-				}
+				});
+			} else {
+				Cart.updateOne({objectId: userId},{$set: {items:newItems, price:newPrice}}, 
+
+					function(err, result){
+						if(result){
+							console.log("Updated Successfully"); 
+							res.redirect('/viewCart')
+						} else if (err) {
+							console.log("Update Failed"); 
+							res.redirect('/viewCart')
+						}
+					}
 				)
+			}
 		},
 		
 		deleteItem: function(req, res){
